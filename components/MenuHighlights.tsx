@@ -37,25 +37,14 @@ export default function MenuHighlights() {
                 <div className="absolute inset-0 bg-gradient-to-t from-primary/40 to-transparent" />
               </div>
             </div>
-            <div className="relative overflow-hidden rounded-2xl">
-              <div className="relative aspect-square w-full">
+            <div className="relative col-span-2 overflow-hidden rounded-2xl">
+              <div className="relative aspect-video w-full">
                 <Image
                   src={IMAGES.menu2}
                   alt="Pauleen's Catering plated dishes"
                   fill
                   className="object-cover"
-                  sizes="(max-width: 1024px) 50vw, 25vw"
-                />
-              </div>
-            </div>
-            <div className="relative overflow-hidden rounded-2xl">
-              <div className="relative aspect-square w-full">
-                <Image
-                  src={IMAGES.gallery[7]}
-                  alt="Pauleen's Catering food presentation"
-                  fill
-                  className="object-cover"
-                  sizes="(max-width: 1024px) 50vw, 25vw"
+                  sizes="(max-width: 1024px) 100vw, 50vw"
                 />
               </div>
             </div>
