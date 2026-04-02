@@ -3,25 +3,142 @@
 @tailwind utilities;
 
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  --primary: #0f172a;
+  --secondary: #065f46;
+  --accent: #f97316;
+  --gold: #facc15;
+  --surface: #f8fafc;
+  --dark-card: #1e293b;
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+@layer base {
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    color: var(--primary);
+    background: var(--surface);
+    font-family: var(--font-poppins), system-ui, sans-serif;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  ::selection {
+    background: #f97316;
+    color: white;
   }
 }
 
-body {
-  color: var(--foreground);
-  background: var(--background);
-  font-family: Arial, Helvetica, sans-serif;
+@layer components {
+  .btn-primary {
+    @apply inline-flex items-center gap-2 rounded-full bg-accent px-8 py-4 text-sm font-semibold uppercase tracking-widest text-white transition-all duration-300 hover:bg-orange-warm hover:shadow-warm-lg hover:-translate-y-0.5 active:translate-y-0 min-h-[44px] min-w-[44px];
+  }
+
+  .btn-outline {
+    @apply inline-flex items-center gap-2 rounded-full border-2 border-white px-8 py-4 text-sm font-semibold uppercase tracking-widest text-white transition-all duration-300 hover:bg-white hover:text-primary hover:-translate-y-0.5 active:translate-y-0 min-h-[44px] min-w-[44px];
+  }
+
+  .btn-dark {
+    @apply inline-flex items-center gap-2 rounded-full bg-primary px-8 py-4 text-sm font-semibold uppercase tracking-widest text-white transition-all duration-300 hover:bg-dark-card hover:shadow-dark-lg hover:-translate-y-0.5 active:translate-y-0 min-h-[44px] min-w-[44px];
+  }
+
+  .section-tag {
+    @apply inline-flex items-center gap-2 rounded-full border border-accent/30 bg-accent/10 px-4 py-1.5 text-xs font-semibold uppercase tracking-widest text-accent;
+  }
+
+  .section-tag-light {
+    @apply inline-flex items-center gap-2 rounded-full border border-white/20 bg-white/10 px-4 py-1.5 text-xs font-semibold uppercase tracking-widest text-white/80;
+  }
+
+  .heading-display {
+    @apply font-display text-5xl font-bold leading-tight text-primary md:text-6xl lg:text-7xl;
+  }
+
+  .heading-display-light {
+    @apply font-display text-5xl font-bold leading-tight text-white md:text-6xl lg:text-7xl;
+  }
+
+  .heading-section {
+    @apply font-display text-3xl font-bold text-primary md:text-4xl lg:text-5xl;
+  }
+
+  .heading-section-light {
+    @apply font-display text-3xl font-bold text-white md:text-4xl lg:text-5xl;
+  }
+
+  .card-hover {
+    @apply transition-all duration-500 hover:-translate-y-2 hover:shadow-warm-lg;
+  }
+
+  .divider-gold {
+    @apply h-px w-16 bg-gradient-to-r from-accent to-gold;
+  }
+
+  .text-gradient-warm {
+    @apply bg-gradient-to-r from-accent to-gold bg-clip-text text-transparent;
+  }
 }
 
 @layer utilities {
   .text-balance {
     text-wrap: balance;
   }
+
+  .anim-delay-100 {
+    animation-delay: 100ms;
+  }
+  .anim-delay-200 {
+    animation-delay: 200ms;
+  }
+  .anim-delay-300 {
+    animation-delay: 300ms;
+  }
+  .anim-delay-400 {
+    animation-delay: 400ms;
+  }
+  .anim-delay-500 {
+    animation-delay: 500ms;
+  }
+  .anim-delay-600 {
+    animation-delay: 600ms;
+  }
+
+  .opacity-0-init {
+    opacity: 0;
+  }
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  width: 6px;
+}
+::-webkit-scrollbar-track {
+  background: var(--primary);
+}
+::-webkit-scrollbar-thumb {
+  background: var(--accent);
+  border-radius: 3px;
+}
+
+/* Noise texture overlay for dark sections */
+.noise-overlay::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.03'/%3E%3C/svg%3E");
+  pointer-events: none;
+  z-index: 1;
+}
+
+/* Decorative lines */
+.deco-lines::after {
+  content: '';
+  position: absolute;
+  right: -2px;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 3px;
+  height: 60px;
+  background: linear-gradient(to bottom, transparent, #f97316, transparent);
 }
