@@ -1,9 +1,15 @@
 'use client';
 
 import Link from 'next/link';
-import { useState } from 'react';
+import Script from 'next/script';
+import { useEffect, useState } from 'react';
 
 import { EVENT_TYPES, SITE_CONFIG } from '@/lib/constants';
+
+// Replace with the real Calendly URL when ready
+const CALENDLY_URL = 'https://calendly.com/pauleens-catering';
+
+type Tab = 'message' | 'book';
 
 type FormState = {
   firstName: string;
@@ -26,9 +32,22 @@ const INITIAL_FORM: FormState = {
 };
 
 export default function ContactSection() {
+  const [activeTab, setActiveTab] = useState<Tab>('message');
   const [form, setForm] = useState<FormState>(INITIAL_FORM);
   const [status, setStatus] = useState<SubmitStatus>('idle');
   const [errors, setErrors] = useState<Partial<FormState>>({});
+  const [calendlyLoaded, setCalendlyLoaded] = useState(false);
+
+  // Load Calendly CSS when book tab is first opened
+  useEffect(() => {
+    if (activeTab === 'book' && !calendlyLoaded) {
+      const link = document.createElement('link');
+      link.href = 'https://assets.calendly.com/assets/external/widget.css';
+      link.rel = 'stylesheet';
+      document.head.appendChild(link);
+      setCalendlyLoaded(true);
+    }
+  }, [activeTab, calendlyLoaded]);
 
   const validate = (): boolean => {
     const newErrors: Partial<FormState> = {};
@@ -71,8 +90,9 @@ export default function ContactSection() {
   return (
     <section id="contact" className="bg-surface py-24 lg:py-32">
       <div className="mx-auto max-w-7xl px-6 lg:px-12">
-        <div className="grid gap-16 lg:grid-cols-2 lg:items-start">
-          {/* Left: Info */}
+        <div className="grid gap-16 lg:grid-cols-[1fr_1.6fr] lg:items-start">
+
+          {/* Left: Info + contact details */}
           <div>
             <span className="section-tag mb-6 block w-fit">Get in Touch</span>
             <h2 className="heading-section mb-5 text-balance">
@@ -137,135 +157,205 @@ export default function ContactSection() {
             </div>
           </div>
 
-          {/* Right: Form */}
-          <div className="rounded-2xl bg-white p-8 shadow-sm lg:p-10">
-            {status === 'success' ? (
-              <div className="flex flex-col items-center py-12 text-center">
-                <div className="mb-4 flex h-16 w-16 items-center justify-center rounded-full bg-accent/10">
-                  <svg className="h-8 w-8 text-accent" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
+          {/* Right: Tabbed panel */}
+          <div>
+            {/* Tab switcher */}
+            <div className="mb-6 flex rounded-2xl border border-primary/10 bg-white p-1.5 shadow-sm">
+              <TabButton
+                active={activeTab === 'message'}
+                onClick={() => setActiveTab('message')}
+                icon={
+                  <svg className="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
                   </svg>
-                </div>
-                <h3 className="font-display text-2xl font-bold text-primary">Message Sent!</h3>
-                <p className="mt-3 text-sm text-primary/60">
-                  Thank you for reaching out. {SITE_CONFIG.chefAlias} will be in touch with you shortly.
-                </p>
-                <button onClick={() => setStatus('idle')} className="btn-primary mt-6">
-                  Send Another Message
-                </button>
-              </div>
-            ) : (
-              <form onSubmit={handleSubmit} noValidate className="space-y-5">
-                <div className="grid gap-5 sm:grid-cols-2">
-                  <FormField
-                    label="First Name"
-                    name="firstName"
-                    type="text"
-                    value={form.firstName}
-                    error={errors.firstName}
-                    placeholder="Jane"
-                    onChange={handleChange}
-                    required
-                  />
-                  <FormField
-                    label="Last Name"
-                    name="lastName"
-                    type="text"
-                    value={form.lastName}
-                    error={errors.lastName}
-                    placeholder="Smith"
-                    onChange={handleChange}
-                    required
-                  />
-                </div>
+                }
+                label="Send a Message"
+              />
+              <TabButton
+                active={activeTab === 'book'}
+                onClick={() => setActiveTab('book')}
+                icon={
+                  <svg className="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z" />
+                  </svg>
+                }
+                label="Book a Consultation"
+              />
+            </div>
 
-                <FormField
-                  label="Phone"
-                  name="phone"
-                  type="tel"
-                  value={form.phone}
-                  placeholder="(555) 000-0000"
-                  onChange={handleChange}
-                />
-
-                <FormField
-                  label="Email"
-                  name="email"
-                  type="email"
-                  value={form.email}
-                  placeholder="jane@example.com"
-                  onChange={handleChange}
-                />
-
-                <div>
-                  <label htmlFor="eventType" className="mb-1.5 block text-sm font-medium text-primary">
-                    Event Type
-                  </label>
-                  <select
-                    id="eventType"
-                    name="eventType"
-                    value={form.eventType}
-                    onChange={handleChange}
-                    className="w-full rounded-xl border border-primary/15 bg-surface px-4 py-3 text-sm focus:outline-none focus:ring-2 focus:ring-accent/30"
-                  >
-                    <option value="">Select event type...</option>
-                    {EVENT_TYPES.map((type) => (
-                      <option key={type} value={type}>{type}</option>
-                    ))}
-                  </select>
-                </div>
-
-                <div>
-                  <label htmlFor="message" className="mb-1.5 block text-sm font-medium text-primary">
-                    Message <span className="text-accent">*</span>
-                  </label>
-                  <textarea
-                    id="message"
-                    name="message"
-                    value={form.message}
-                    onChange={handleChange}
-                    required
-                    rows={4}
-                    placeholder="Tell us about your event or inquiry..."
-                    className={`w-full resize-none rounded-xl border px-4 py-3 text-sm focus:outline-none focus:ring-2 focus:ring-accent/30 ${
-                      errors.message ? 'border-red-400 bg-red-50' : 'border-primary/15 bg-surface'
-                    }`}
-                  />
-                  {errors.message && (
-                    <p className="mt-1 text-xs text-red-500">{errors.message}</p>
-                  )}
-                </div>
-
-                <button
-                  type="submit"
-                  disabled={status === 'submitting'}
-                  className="btn-primary w-full justify-center disabled:cursor-not-allowed disabled:opacity-70"
-                >
-                  {status === 'submitting' ? (
-                    <>
-                      <svg className="h-4 w-4 animate-spin" fill="none" viewBox="0 0 24 24">
-                        <circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4" />
-                        <path className="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4z" />
+            {/* Message form */}
+            <div className={activeTab === 'message' ? 'block' : 'hidden'}>
+              <div className="rounded-2xl bg-white p-8 shadow-sm lg:p-10">
+                {status === 'success' ? (
+                  <div className="flex flex-col items-center py-12 text-center">
+                    <div className="mb-4 flex h-16 w-16 items-center justify-center rounded-full bg-accent/10">
+                      <svg className="h-8 w-8 text-accent" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
                       </svg>
-                      Sending...
-                    </>
-                  ) : (
-                    "Let's Chat!"
-                  )}
-                </button>
+                    </div>
+                    <h3 className="font-display text-2xl font-bold text-primary">Message Sent!</h3>
+                    <p className="mt-3 text-sm text-primary/60">
+                      Thank you for reaching out. {SITE_CONFIG.chefAlias} will be in touch with you shortly.
+                    </p>
+                    <button onClick={() => setStatus('idle')} className="btn-primary mt-6">
+                      Send Another Message
+                    </button>
+                  </div>
+                ) : (
+                  <form onSubmit={handleSubmit} noValidate className="space-y-5">
+                    <div className="grid gap-5 sm:grid-cols-2">
+                      <FormField
+                        label="First Name"
+                        name="firstName"
+                        type="text"
+                        value={form.firstName}
+                        error={errors.firstName}
+                        placeholder="Jane"
+                        onChange={handleChange}
+                        required
+                      />
+                      <FormField
+                        label="Last Name"
+                        name="lastName"
+                        type="text"
+                        value={form.lastName}
+                        error={errors.lastName}
+                        placeholder="Smith"
+                        onChange={handleChange}
+                        required
+                      />
+                    </div>
 
-                <p className="text-center text-xs text-primary/40">
-                  Or call us at{' '}
-                  <Link href={SITE_CONFIG.phoneHref} className="text-accent hover:underline">
-                    {SITE_CONFIG.phone}
-                  </Link>
-                </p>
-              </form>
-            )}
+                    <FormField
+                      label="Phone"
+                      name="phone"
+                      type="tel"
+                      value={form.phone}
+                      placeholder="(555) 000-0000"
+                      onChange={handleChange}
+                    />
+
+                    <FormField
+                      label="Email"
+                      name="email"
+                      type="email"
+                      value={form.email}
+                      placeholder="jane@example.com"
+                      onChange={handleChange}
+                    />
+
+                    <div>
+                      <label htmlFor="eventType" className="mb-1.5 block text-sm font-medium text-primary">
+                        Event Type
+                      </label>
+                      <select
+                        id="eventType"
+                        name="eventType"
+                        value={form.eventType}
+                        onChange={handleChange}
+                        className="w-full rounded-xl border border-primary/15 bg-surface px-4 py-3 text-sm focus:outline-none focus:ring-2 focus:ring-accent/30"
+                      >
+                        <option value="">Select event type...</option>
+                        {EVENT_TYPES.map((type) => (
+                          <option key={type} value={type}>{type}</option>
+                        ))}
+                      </select>
+                    </div>
+
+                    <div>
+                      <label htmlFor="message" className="mb-1.5 block text-sm font-medium text-primary">
+                        Message <span className="text-accent">*</span>
+                      </label>
+                      <textarea
+                        id="message"
+                        name="message"
+                        value={form.message}
+                        onChange={handleChange}
+                        required
+                        rows={4}
+                        placeholder="Tell us about your event or inquiry..."
+                        className={`w-full resize-none rounded-xl border px-4 py-3 text-sm focus:outline-none focus:ring-2 focus:ring-accent/30 ${
+                          errors.message ? 'border-red-400 bg-red-50' : 'border-primary/15 bg-surface'
+                        }`}
+                      />
+                      {errors.message && (
+                        <p className="mt-1 text-xs text-red-500">{errors.message}</p>
+                      )}
+                    </div>
+
+                    <button
+                      type="submit"
+                      disabled={status === 'submitting'}
+                      className="btn-primary w-full justify-center disabled:cursor-not-allowed disabled:opacity-70"
+                    >
+                      {status === 'submitting' ? (
+                        <>
+                          <svg className="h-4 w-4 animate-spin" fill="none" viewBox="0 0 24 24">
+                            <circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4" />
+                            <path className="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4z" />
+                          </svg>
+                          Sending...
+                        </>
+                      ) : (
+                        "Let's Chat!"
+                      )}
+                    </button>
+
+                    <p className="text-center text-xs text-primary/40">
+                      Or call us at{' '}
+                      <Link href={SITE_CONFIG.phoneHref} className="text-accent hover:underline">
+                        {SITE_CONFIG.phone}
+                      </Link>
+                    </p>
+                  </form>
+                )}
+              </div>
+            </div>
+
+            {/* Calendly embed */}
+            <div className={activeTab === 'book' ? 'block' : 'hidden'}>
+              <div className="overflow-hidden rounded-2xl border border-primary/10 bg-white shadow-sm">
+                <div
+                  className="calendly-inline-widget"
+                  data-url={CALENDLY_URL}
+                  style={{ minWidth: '320px', height: '700px' }}
+                />
+              </div>
+            </div>
           </div>
         </div>
       </div>
+
+      {calendlyLoaded && (
+        <Script
+          src="https://assets.calendly.com/assets/external/widget.js"
+          strategy="lazyOnload"
+        />
+      )}
     </section>
+  );
+}
+
+type TabButtonProps = {
+  active: boolean;
+  onClick: () => void;
+  icon: React.ReactNode;
+  label: string;
+};
+
+function TabButton({ active, onClick, icon, label }: TabButtonProps) {
+  return (
+    <button
+      onClick={onClick}
+      className={`flex flex-1 items-center justify-center gap-2 rounded-xl px-4 py-3 text-sm font-semibold transition-all duration-200 ${
+        active
+          ? 'bg-accent text-white shadow-sm'
+          : 'text-primary/50 hover:text-primary'
+      }`}
+    >
+      {icon}
+      {label}
+    </button>
   );
 }
 

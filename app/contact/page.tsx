@@ -1,7 +1,6 @@
 import type { Metadata } from 'next';
 import Image from 'next/image';
 
-import CalendlyEmbed from '@/components/CalendlyEmbed';
 import ContactSection from '@/components/ContactSection';
 import Footer from '@/components/Footer';
 import Navbar from '@/components/Navbar';
@@ -44,7 +43,6 @@ export default function ContactPage() {
         </section>
 
         <ContactSection />
-        <CalendlyEmbed />
       </main>
       <Footer />
     </>
