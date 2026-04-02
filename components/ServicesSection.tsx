@@ -57,9 +57,7 @@ function ServiceCard({ service }: ServiceCardProps) {
           sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
         />
         <div className="absolute inset-0 bg-gradient-to-t from-primary/60 via-transparent to-transparent" />
-        <div className="absolute bottom-4 left-4 flex h-10 w-10 items-center justify-center rounded-full bg-accent text-xl shadow-warm-lg">
-          {service.icon}
-        </div>
+        <div className="absolute bottom-4 left-4 h-1 w-10 rounded-full bg-accent shadow-warm-lg" />
       </div>
 
       {/* Content */}

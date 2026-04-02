@@ -8,7 +8,6 @@ export type MenuItem = {
 export type MenuCategory = {
   id: string;
   label: string;
-  emoji: string;
   items: MenuItem[];
 };
 
@@ -16,7 +15,6 @@ export const MENU_CATEGORIES: MenuCategory[] = [
   {
     id: 'for-the-table',
     label: 'For the Table',
-    emoji: '🍽️',
     items: [
       {
         name: 'The Pub Platter',
@@ -53,7 +51,6 @@ export const MENU_CATEGORIES: MenuCategory[] = [
   {
     id: 'dips-tots',
     label: 'Dips & Tots',
-    emoji: '🧀',
     items: [
       {
         name: 'Dips',
@@ -95,7 +92,6 @@ export const MENU_CATEGORIES: MenuCategory[] = [
   {
     id: 'not-panini',
     label: 'Not Panini',
-    emoji: '🥙',
     items: [
       {
         name: 'Gyro*',
@@ -140,7 +136,6 @@ export const MENU_CATEGORIES: MenuCategory[] = [
   {
     id: 'panini',
     label: 'Panini',
-    emoji: '🥪',
     items: [
       {
         name: 'El Cubano',
@@ -243,7 +238,6 @@ export const MENU_CATEGORIES: MenuCategory[] = [
   {
     id: 'sides',
     label: 'Sides',
-    emoji: '🥗',
     items: [
       { name: 'Baked Potato Salad', price: 8 },
       { name: 'Greek Pasta Salad', price: 8 },

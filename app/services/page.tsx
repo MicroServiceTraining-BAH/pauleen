@@ -93,9 +93,7 @@ function ServiceDetail({ service, reverse }: ServiceDetailProps) {
               sizes="(max-width: 1024px) 100vw, 50vw"
             />
             <div className="absolute inset-0 bg-gradient-to-t from-primary/50 to-transparent" />
-            <div className="absolute bottom-4 left-4 flex h-12 w-12 items-center justify-center rounded-full bg-accent text-2xl shadow-warm-lg">
-              {service.icon}
-            </div>
+            <div className="absolute bottom-4 left-4 h-1 w-10 rounded-full bg-accent shadow-warm-lg" />
           </div>
         </div>
       </div>

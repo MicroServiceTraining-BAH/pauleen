@@ -56,7 +56,6 @@ export const SERVICES = [
     description:
       'We understand that no two events are the same, and we strive to customize our services to fit whatever needs you may have, including specific dietary guidelines. We take great pride in offering fresh, delicious food, and are detail-oriented to ensure that your special event is perfect! Our level of hospitality is second to none and will leave a lasting impression on you and your guests.',
     cta: 'Get a Quote!',
-    icon: '🍽️',
     image: IMAGES.gallery[0],
   },
   {
@@ -66,7 +65,6 @@ export const SERVICES = [
     description:
       "Life always seems hectic and busy — this service is the perfect solution. When you book this popular service, you're in for a one-of-a-kind culinary experience that will leave you all wanting more. Contact us today and we'll work with you to curate your next gathering, from intimate dinner parties to life's most significant occasions, or simply to take the guesswork out of \"what's for dinner?\" Let us do the work for you! In-home and drop-off service available.",
     cta: "Let's Chat!",
-    icon: '👨‍🍳',
     image: IMAGES.services,
   },
   {
@@ -76,7 +74,6 @@ export const SERVICES = [
     description:
       "This service specializes in simplifying recipes based on your specific requests. Chef Jimmie can help you create delicious, nutritious meals that will tantalize your guests' taste buds. We can customize recipes to fit specific dietary needs, while still providing a delicious and memorable experience for your guests.",
     cta: 'Email',
-    icon: '📖',
     image: IMAGES.gallery[4],
   },
 ] as const;

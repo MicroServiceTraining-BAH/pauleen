@@ -69,7 +69,6 @@ export default function InteractiveMenu() {
                   : 'border border-white/15 bg-white/5 text-white/60 hover:border-white/30 hover:text-white'
               }`}
             >
-              <span>{cat.emoji}</span>
               {cat.label}
               <span
                 className={`rounded-full px-2 py-0.5 text-xs tabular-nums ${
