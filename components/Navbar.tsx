@@ -42,7 +42,7 @@ export default function Navbar() {
       >
         <nav className="mx-auto flex max-w-7xl items-center justify-between px-6 py-4 lg:px-12">
           {/* Logo */}
-          <Link href="/" className="relative z-10 flex items-center gap-3">
+          <Link href="/" onClick={() => window.scrollTo({ top: 0, behavior: 'instant' })} className="relative z-10 flex items-center gap-3">
             <div className="relative h-10 w-10 overflow-hidden rounded-full">
               <Image
                 src={IMAGES.logo}
@@ -68,6 +68,7 @@ export default function Navbar() {
               <li key={href}>
                 <Link
                   href={href}
+                  onClick={() => { if (href === '/') window.scrollTo({ top: 0, behavior: 'instant' }); }}
                   className={`relative text-sm font-medium uppercase tracking-widest transition-colors duration-300 after:absolute after:-bottom-1 after:left-0 after:h-px after:w-full after:origin-left after:scale-x-0 after:bg-accent after:transition-transform after:duration-300 hover:text-accent hover:after:scale-x-100 ${
                     pathname === href ? 'text-accent after:scale-x-100' : 'text-white/80'
                   }`}
@@ -128,6 +129,7 @@ export default function Navbar() {
             <Link
               key={href}
               href={href}
+              onClick={() => { if (href === '/') window.scrollTo({ top: 0, behavior: 'instant' }); }}
               className={`font-display text-4xl font-bold text-white/80 transition-all duration-300 hover:text-accent ${
                 pathname === href ? 'text-accent' : ''
               }`}
