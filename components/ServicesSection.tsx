@@ -11,20 +11,19 @@ export default function ServicesSection() {
         <div className="mb-16 flex flex-col items-center text-center">
           <span className="section-tag mb-4">What We Offer</span>
           <h2 className="heading-section mb-5 text-balance">
-            Full-Service{' '}
-            <span className="text-gradient-warm">Caribbean Catering</span>
+            Our <span className="text-gradient-warm">Services</span>
           </h2>
           <div className="divider-gold mb-5" />
           <p className="max-w-xl text-base leading-relaxed text-primary/60">
-            From intimate private dinners to large-scale weddings and corporate events,
-            we deliver authentic Caribbean cuisine with flawless execution and genuine care.
+            From curated private dinners to full-scale event catering, we work with you
+            to deliver fresh, delicious food with hospitality that leaves a lasting impression.
           </p>
         </div>
 
         {/* Services Grid */}
-        <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
-          {SERVICES.map((service, i) => (
-            <ServiceCard key={service.id} service={service} index={i} />
+        <div className="grid gap-6 md:grid-cols-3">
+          {SERVICES.map((service) => (
+            <ServiceCard key={service.id} service={service} />
           ))}
         </div>
 
@@ -43,7 +42,6 @@ export default function ServicesSection() {
 
 type ServiceCardProps = {
   service: (typeof SERVICES)[number];
-  index: number;
 };
 
 function ServiceCard({ service }: ServiceCardProps) {
@@ -53,7 +51,7 @@ function ServiceCard({ service }: ServiceCardProps) {
       <div className="relative h-52 overflow-hidden">
         <Image
           src={service.image}
-          alt={`${service.title} by Pauleen's Catering`}
+          alt={`${service.title} — Pauleen's by Chef Ji`}
           fill
           className="object-cover transition-transform duration-700 group-hover:scale-110"
           sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
@@ -66,6 +64,9 @@ function ServiceCard({ service }: ServiceCardProps) {
 
       {/* Content */}
       <div className="flex flex-1 flex-col p-6">
+        <p className="mb-1 text-xs font-semibold uppercase tracking-widest text-accent">
+          {service.headline}
+        </p>
         <h3 className="mb-2 font-display text-xl font-bold text-primary">
           {service.title}
         </h3>
@@ -75,9 +76,9 @@ function ServiceCard({ service }: ServiceCardProps) {
         </p>
         <Link
           href="/contact"
-          className="mt-5 inline-flex items-center gap-1.5 text-sm font-semibold text-accent transition-gap duration-300 hover:gap-3"
+          className="mt-5 inline-flex items-center gap-1.5 text-sm font-semibold text-accent transition-all duration-300 hover:gap-3"
         >
-          Request a Quote
+          {service.cta}
           <svg className="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
             <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
           </svg>

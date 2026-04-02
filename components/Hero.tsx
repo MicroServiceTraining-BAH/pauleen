@@ -9,7 +9,7 @@ export default function Hero() {
       {/* Background Image */}
       <Image
         src={IMAGES.hero}
-        alt="Elegant Caribbean catering spread by Pauleen's Catering"
+        alt="Elegant catering spread by Pauleen's Catering"
         fill
         className="object-cover object-center"
         priority
@@ -21,38 +21,39 @@ export default function Hero() {
       <div className="absolute inset-0 bg-gradient-to-r from-primary/95 via-primary/75 to-primary/40" />
       <div className="absolute inset-0 bg-gradient-to-t from-primary/80 via-transparent to-primary/30" />
 
-      {/* Decorative accent bar */}
+      {/* Top accent bar */}
       <div className="absolute left-0 top-0 h-1 w-full bg-gradient-to-r from-accent via-gold to-accent" />
 
       {/* Content */}
       <div className="relative z-10 mx-auto flex min-h-screen max-w-7xl flex-col items-start justify-center px-6 py-32 lg:px-12">
         <div className="max-w-2xl">
-          {/* Tag */}
+          {/* Location tag */}
           <div className="mb-6 animate-fade-in opacity-0-init" style={{ animationFillMode: 'forwards' }}>
             <span className="section-tag-light">
               <span className="h-1.5 w-1.5 rounded-full bg-accent" />
-              Est. {SITE_CONFIG.founded} · {SITE_CONFIG.city}
+              {SITE_CONFIG.subTagline}
             </span>
           </div>
 
-          {/* Headline */}
-          <h1
-            className="heading-display-light mb-6 animate-fade-up opacity-0-init text-balance"
+          {/* Real tagline as hero quote */}
+          <blockquote
+            className="mb-4 animate-fade-up opacity-0-init"
             style={{ animationDelay: '150ms', animationFillMode: 'forwards' }}
           >
-            Elevated{' '}
-            <span className="text-gradient-warm">Caribbean</span>
-            <br />
-            Catering Experience
-          </h1>
+            <p className="font-display text-4xl font-bold leading-tight text-white md:text-5xl lg:text-6xl text-balance">
+              &ldquo;{SITE_CONFIG.tagline}&rdquo;
+            </p>
+            <footer className="mt-4 text-sm font-medium uppercase tracking-widest text-accent">
+              {SITE_CONFIG.taglineAttribution}
+            </footer>
+          </blockquote>
 
-          {/* Subheadline */}
+          {/* Sub copy */}
           <p
             className="mb-10 max-w-lg animate-fade-up text-lg leading-relaxed text-white/70 opacity-0-init"
             style={{ animationDelay: '300ms', animationFillMode: 'forwards' }}
           >
-            Authentic island flavors crafted by {SITE_CONFIG.chefAlias} for weddings,
-            corporate gatherings, and private celebrations throughout Northern Virginia.
+            Let us cater your next event!
           </p>
 
           {/* CTAs */}
@@ -61,7 +62,7 @@ export default function Hero() {
             style={{ animationDelay: '450ms', animationFillMode: 'forwards' }}
           >
             <Link href="/contact" className="btn-primary">
-              Request a Quote
+              Get a Quote
               <svg className="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
               </svg>
@@ -72,33 +73,6 @@ export default function Hero() {
               </svg>
               Call Now
             </Link>
-          </div>
-
-          {/* Social proof strip */}
-          <div
-            className="mt-14 flex animate-fade-up items-center gap-4 opacity-0-init"
-            style={{ animationDelay: '600ms', animationFillMode: 'forwards' }}
-          >
-            <div className="flex -space-x-2">
-              {[1, 2, 3, 4].map((i) => (
-                <div
-                  key={i}
-                  className="h-9 w-9 rounded-full border-2 border-primary bg-gradient-to-br from-accent/40 to-secondary/40"
-                />
-              ))}
-            </div>
-            <div>
-              <div className="flex items-center gap-1">
-                {[...Array(5)].map((_, i) => (
-                  <svg key={i} className="h-3.5 w-3.5 fill-gold" viewBox="0 0 20 20">
-                    <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
-                  </svg>
-                ))}
-              </div>
-              <p className="text-xs text-white/60">
-                Trusted by <span className="font-semibold text-white">500+ events</span> across VA
-              </p>
-            </div>
           </div>
         </div>
       </div>

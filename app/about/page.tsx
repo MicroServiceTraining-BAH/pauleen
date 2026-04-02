@@ -9,7 +9,7 @@ import { IMAGES, SITE_CONFIG } from '@/lib/constants';
 export const metadata: Metadata = {
   title: 'About',
   description:
-    "Learn the story behind Pauleen's Catering & Events — founded by Chef Jimmie Salonie (Chef Ji) in 2009, delivering authentic Caribbean cuisine to events across Northern Virginia.",
+    "Learn the story behind Pauleen's by Chef Ji — founded in 2009 by Chef Jimmie Salonie, a modern artisan chef dedicated to crafting food, drink, and service that is often imitated but rarely equalled.",
 };
 
 export default function AboutPage() {
@@ -22,7 +22,7 @@ export default function AboutPage() {
           <div className="absolute inset-0">
             <Image
               src={IMAGES.heroAlt}
-              alt="Catering event"
+              alt="Catering event by Pauleen's"
               fill
               className="object-cover opacity-20"
               sizes="100vw"
@@ -32,11 +32,11 @@ export default function AboutPage() {
           <div className="relative z-10 mx-auto max-w-7xl px-6 lg:px-12">
             <span className="section-tag-light mb-4 block w-fit">Our Story</span>
             <h1 className="heading-display-light mb-4 text-balance">
-              Meet <span className="text-gradient-warm">Chef Ji</span>
+              Meet <span className="text-gradient-warm">{SITE_CONFIG.chefAlias}</span>
             </h1>
             <p className="max-w-xl text-lg text-white/60">
-              The passion, the person, and the philosophy behind Pauleen&apos;s Catering
-              &amp; Events.
+              A modern artisan chef dedicated to crafting food, drink, and service that
+              is &ldquo;often imitated but rarely equalled.&rdquo;
             </p>
           </div>
         </section>
@@ -50,107 +50,95 @@ export default function AboutPage() {
                   <div className="relative aspect-[4/5]">
                     <Image
                       src={IMAGES.about}
-                      alt={`${SITE_CONFIG.chef} — Executive Chef`}
+                      alt={`${SITE_CONFIG.chef} — Executive Chef & Owner`}
                       fill
                       className="object-cover object-top"
                       sizes="(max-width: 1024px) 100vw, 50vw"
                     />
                   </div>
                 </div>
-                {/* Chef badge */}
                 <div className="absolute -bottom-6 left-6 rounded-2xl bg-primary p-5 shadow-dark-lg">
-                  <p className="font-display text-lg font-bold text-white">
-                    {SITE_CONFIG.chef}
-                  </p>
-                  <p className="text-xs text-accent">Executive Chef &amp; Founder</p>
+                  <p className="font-display text-lg font-bold text-white">{SITE_CONFIG.chef}</p>
+                  <p className="text-xs text-accent">Executive Chef &amp; Owner</p>
                   <p className="mt-1 text-xs text-white/40">Est. {SITE_CONFIG.founded}</p>
                 </div>
               </div>
 
               <div className="lg:pt-4">
                 <h2 className="heading-section mb-6">
-                  Crafting Food{' '}
-                  <span className="text-gradient-warm">
-                    &ldquo;Often Imitated, Rarely Equalled&rdquo;
-                  </span>
+                  <span className="text-gradient-warm">{SITE_CONFIG.brandName}</span>
                 </h2>
                 <div className="divider-gold mb-8" />
+
+                {/* Real bio — verbatim from pauleenscatering.com/about-5 */}
                 <div className="space-y-5 text-base leading-relaxed text-primary/65">
                   <p>
-                    Pauleen&apos;s Catering &amp; Events was founded in {SITE_CONFIG.founded}
-                    by {SITE_CONFIG.chef} — known throughout the culinary world as{' '}
-                    <strong className="font-semibold text-primary">{SITE_CONFIG.chefAlias}</strong>.
-                    What began as a deep passion for authentic Caribbean cuisine and a
-                    commitment to quality has grown into one of Northern Virginia&apos;s
-                    most trusted full-service catering companies.
+                    Chef Jimmie was born and raised in New York City in a very tight-knit
+                    Greek family. This is where he was exposed to a style of cooking that
+                    blended unique multi-cultural cuisines and traditional American influences,
+                    which he developed into a culinary style that pays homage to his roots.
                   </p>
                   <p>
-                    As a modern artisan chef, {SITE_CONFIG.chefAlias} brings a philosophy
-                    of dedication and craft to every event. His menus are rooted in
-                    Caribbean tradition — bold, layered flavors built on fresh ingredients
-                    and time-honored techniques — yet presented with the elegance and
-                    precision of fine dining.
+                    Honing his talents in some of the best kitchens on the East Coast, he,
+                    alongside partner and Hospitality Director,{' '}
+                    <strong className="text-primary">{SITE_CONFIG.partner}</strong>, launched
+                    their full-service catering company, Pauleen&apos;s, in{' '}
+                    {SITE_CONFIG.founded}, which focuses on regional American cuisine. The brand
+                    is an ode to Jimmie and Michael&apos;s mothers, Paula and Maureen, who
+                    gave them the foundation to become who they are today.
                   </p>
                   <p>
-                    Beyond Pauleen&apos;s, Chef Ji has created a portfolio of culinary
-                    ventures including Pauleen&apos;s Panini &amp; Pub Food and the
-                    Pauleen&apos;s at The Dell Leesburg location, cementing his reputation
-                    as a creative force in the Northern Virginia food scene.
+                    Chef Jimmie has developed a reputation for executing highly curated
+                    private dinners, corporate events, and culinary classes, as well as
+                    catering for various events throughout life that are to be celebrated.
                   </p>
                   <p>
-                    Whether serving 10 guests at an intimate dinner or 500 at a grand
-                    wedding reception, the Pauleen&apos;s standard never wavers: fresh
-                    ingredients, meticulous preparation, and service that makes every
-                    guest feel like the guest of honor.
+                    In addition to Pauleen&apos;s, Chef Jimmie expanded his repertoire to
+                    create HandleBarHKNY, a bespoke cocktail concept, and Ela, a pop-up
+                    concept with a menu that consists of traditional dishes inspired by his
+                    Greek heritage.
                   </p>
-                </div>
-
-                {/* Highlights */}
-                <div className="mt-10 grid grid-cols-2 gap-4">
-                  {[
-                    { icon: '🏝️', title: 'Caribbean Heritage', desc: 'Rooted in authentic island cuisine' },
-                    { icon: '🌿', title: 'Fresh Ingredients', desc: 'Locally sourced when possible' },
-                    { icon: '🎯', title: 'Detail-Oriented', desc: 'Precision in every plate' },
-                    { icon: '🤝', title: 'Full-Service', desc: 'From planning to clean-up' },
-                  ].map(({ icon, title, desc }) => (
-                    <div key={title} className="rounded-xl bg-white p-4 shadow-sm">
-                      <span className="mb-2 block text-2xl">{icon}</span>
-                      <p className="font-semibold text-primary text-sm">{title}</p>
-                      <p className="mt-0.5 text-xs text-primary/50">{desc}</p>
-                    </div>
-                  ))}
+                  <p>
+                    Currently, you can enjoy Pauleen&apos;s at The Dell: Food &amp; Brew Hall
+                    in the Village at Leesburg serving NYC-inspired panini and shareable
+                    platters, including &ldquo;Mezeterranean&rdquo; offerings — a nod to his
+                    Greek heritage. Pauleen&apos;s also serves weekend brunch every Saturday
+                    &amp; Sunday.
+                  </p>
                 </div>
 
                 <Link href="/contact" className="btn-primary mt-10">
-                  Work With Chef Ji
+                  Work With {SITE_CONFIG.chefAlias}
                 </Link>
               </div>
             </div>
           </div>
         </section>
 
-        {/* Related ventures */}
+        {/* Related ventures — real info from site */}
         <section className="bg-primary py-20 lg:py-24">
           <div className="mx-auto max-w-7xl px-6 lg:px-12">
             <div className="mb-12 text-center">
               <span className="section-tag-light mb-4 block w-fit mx-auto">The Portfolio</span>
-              <h2 className="heading-section-light">Chef Ji&apos;s <span className="text-gradient-warm">Culinary World</span></h2>
+              <h2 className="heading-section-light">
+                Also by <span className="text-gradient-warm">Chef Jimmie</span>
+              </h2>
             </div>
             <div className="grid gap-6 md:grid-cols-3">
               {[
                 {
                   name: "Pauleen's Catering & Events",
-                  desc: 'Full-service Caribbean catering for weddings, corporate, and private events.',
+                  desc: 'Full-service catering company focusing on regional American cuisine. Private dinners, corporate events, and culinary classes.',
                   active: true,
                 },
                 {
-                  name: "Pauleen's Panini & Pub Food",
-                  desc: "Casual, flavorful Caribbean-inspired pub fare with Chef Ji's signature touch.",
+                  name: 'HandleBarHKNY',
+                  desc: 'A bespoke cocktail concept.',
                   active: false,
                 },
                 {
-                  name: "Pauleen's at The Dell Leesburg",
-                  desc: 'A beloved local establishment bringing the Pauleen\'s experience to Leesburg, VA.',
+                  name: 'Ela',
+                  desc: "A pop-up concept featuring traditional dishes inspired by Chef Jimmie's Greek heritage.",
                   active: false,
                 },
               ].map(({ name, desc, active }) => (
@@ -175,17 +163,15 @@ export default function AboutPage() {
         <section className="bg-surface py-20">
           <div className="mx-auto max-w-xl px-6 text-center">
             <h2 className="heading-section mb-5">
-              Ready to Plan <span className="text-gradient-warm">Your Event?</span>
+              Ready to <span className="text-gradient-warm">Get Started?</span>
             </h2>
             <p className="mb-8 text-base text-primary/60">
-              Contact us today for a free consultation and custom menu proposal tailored
-              to your event vision and budget.
+              If you have questions regarding any of our services, or if you would simply
+              like to chat, please feel free to reach out today!
             </p>
             <div className="flex flex-wrap justify-center gap-4">
-              <Link href="/contact" className="btn-primary">Request a Quote</Link>
-              <Link href={SITE_CONFIG.phoneHref} className="btn-dark">
-                {SITE_CONFIG.phone}
-              </Link>
+              <Link href="/contact" className="btn-primary">Get a Quote!</Link>
+              <Link href={SITE_CONFIG.phoneHref} className="btn-dark">{SITE_CONFIG.phone}</Link>
             </div>
           </div>
         </section>

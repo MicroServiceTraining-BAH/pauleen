@@ -1,10 +1,11 @@
 export const SITE_CONFIG = {
   name: "Pauleen's Catering & Events",
   shortName: "Pauleen's",
-  tagline: 'Elevated Caribbean Catering Experience',
-  description:
-    'Authentic Caribbean flavors for weddings, corporate events, and private celebrations in Leesburg, VA and beyond.',
-  phone: '(917) 539-9256',
+  brandName: "Pauleen's by Chef Ji",
+  tagline: "Life is a banquet and tastes so much better when it's prepared for you.",
+  taglineAttribution: '— Chef Jimmie Salonie',
+  subTagline: 'Servicing Northern Virginia & the DMV',
+  phone: '917-539-9256',
   phoneHref: 'tel:+19175399256',
   email: 'Pauleenscuisine@gmail.com',
   emailHref: 'mailto:Pauleenscuisine@gmail.com',
@@ -13,6 +14,8 @@ export const SITE_CONFIG = {
   founded: '2009',
   chef: 'Chef Jimmie Salonie',
   chefAlias: 'Chef Ji',
+  partner: "Michael O'Neill",
+  partnerTitle: 'Hospitality Director',
   social: {
     facebook: 'https://www.facebook.com/PauleensCateringEvents/',
     instagram: 'https://www.instagram.com/pauleens_catering_events/',
@@ -44,54 +47,38 @@ export const IMAGES = {
   ],
 } as const;
 
+// Real services from pauleenscatering.com — exact names and real copy
 export const SERVICES = [
   {
-    id: 'wedding',
-    title: 'Wedding Catering',
+    id: 'event-catering',
+    title: 'Event Catering',
+    headline: 'Exceptional Service',
     description:
-      'Make your most important day unforgettable. We craft bespoke Caribbean menus that reflect your love story, from elegant cocktail hours to lavish reception feasts.',
-    icon: '💍',
+      'We understand that no two events are the same, and we strive to customize our services to fit whatever needs you may have, including specific dietary guidelines. We take great pride in offering fresh, delicious food, and are detail-oriented to ensure that your special event is perfect! Our level of hospitality is second to none and will leave a lasting impression on you and your guests.',
+    cta: 'Get a Quote!',
+    icon: '🍽️',
     image: IMAGES.gallery[0],
   },
   {
-    id: 'corporate',
-    title: 'Corporate Events',
-    description:
-      'Elevate your next meeting, conference, or company celebration. Fresh, flavorful Caribbean cuisine that impresses clients and energizes your team.',
-    icon: '🏢',
-    image: IMAGES.gallery[1],
-  },
-  {
-    id: 'private',
-    title: 'Private Events',
-    description:
-      'From intimate birthday dinners to grand milestone celebrations, we bring authentic Caribbean flavors and full-service hospitality to events of any scale.',
-    icon: '🎉',
-    image: IMAGES.gallery[2],
-  },
-  {
-    id: 'custom',
-    title: 'Custom Menus',
-    description:
-      'No two events are alike. We work with you to design a personalized menu that honors dietary needs, cultural traditions, and your unique culinary vision.',
-    icon: '📋',
-    image: IMAGES.gallery[3],
-  },
-  {
-    id: 'chef',
+    id: 'private-chef',
     title: 'Private Chef',
+    headline: 'Satisfaction Guaranteed',
     description:
-      'Experience restaurant-quality dining in the comfort of your home. Chef Ji handles grocery shopping, meal prep, and even offers hands-on culinary classes.',
+      "Life always seems hectic and busy — this service is the perfect solution. When you book this popular service, you're in for a one-of-a-kind culinary experience that will leave you all wanting more. Contact us today and we'll work with you to curate your next gathering, from intimate dinner parties to life's most significant occasions, or simply to take the guesswork out of \"what's for dinner?\" Let us do the work for you! In-home and drop-off service available.",
+    cta: "Let's Chat!",
     icon: '👨‍🍳',
+    image: IMAGES.services,
+  },
+  {
+    id: 'recipe-development',
+    title: 'Recipe Development',
+    headline: 'Recipe for Success',
+    description:
+      "This service specializes in simplifying recipes based on your specific requests. Chef Jimmie can help you create delicious, nutritious meals that will tantalize your guests' taste buds. We can customize recipes to fit specific dietary needs, while still providing a delicious and memorable experience for your guests.",
+    cta: 'Email',
+    icon: '📖',
     image: IMAGES.gallery[4],
   },
-] as const;
-
-export const STATS = [
-  { value: '15+', label: 'Years of Excellence' },
-  { value: '500+', label: 'Events Catered' },
-  { value: '100%', label: 'Caribbean-Inspired' },
-  { value: '5★', label: 'Client Satisfaction' },
 ] as const;
 
 export const NAV_LINKS = [
@@ -102,12 +89,23 @@ export const NAV_LINKS = [
   { href: '/contact', label: 'Contact' },
 ] as const;
 
+// Only verified menu items from the real site
+export const VERIFIED_MENU_ITEMS = [
+  'Fresh Local Oysters on the Half Shell (Cherrystones, Littlenecks)',
+  'Shrimp Cocktail',
+  'King Crab Legs',
+  'Lobster Tails',
+  'Shrimp Scampi — Six Jumbo Shrimp Sautéed in Garlic and Lemon Butter, Served on Angel Hair Pasta',
+  'Coconut Shrimp with Mango Dipping Sauce',
+  'Shrimp Spring Rolls — Fresh Vegetables Wrapped in a Crispy Roll, Served with Sweet and Sour Duck Sauce',
+] as const;
+
 export const EVENT_TYPES = [
-  'Wedding',
   'Corporate Event',
-  'Private Party',
+  'Private Dinner',
+  'Culinary Class',
+  'Holiday Gathering',
   'Birthday Celebration',
   'Anniversary',
-  'Holiday Gathering',
   'Other',
 ] as const;

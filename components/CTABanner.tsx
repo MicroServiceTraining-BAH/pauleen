@@ -6,10 +6,9 @@ import { IMAGES, SITE_CONFIG } from '@/lib/constants';
 export default function CTABanner() {
   return (
     <section className="relative overflow-hidden py-24 lg:py-32">
-      {/* Background */}
       <Image
         src={IMAGES.heroAlt}
-        alt="Catering event setup"
+        alt="Catering event setup by Pauleen's"
         fill
         className="object-cover"
         sizes="100vw"
@@ -17,7 +16,7 @@ export default function CTABanner() {
       <div className="absolute inset-0 bg-gradient-to-r from-primary/98 via-primary/90 to-primary/70" />
       <div className="absolute inset-0 bg-gradient-to-t from-primary/80 to-transparent" />
 
-      {/* Decorative elements */}
+      {/* Decorative rings */}
       <div className="absolute right-16 top-16 h-48 w-48 rounded-full border border-accent/20 opacity-50" />
       <div className="absolute right-24 top-24 h-32 w-32 rounded-full border border-accent/15 opacity-50" />
       <div className="absolute -left-8 bottom-8 h-64 w-64 rounded-full bg-secondary/20 blur-3xl" />
@@ -30,18 +29,18 @@ export default function CTABanner() {
           </span>
 
           <h2 className="heading-section-light mb-6 text-balance">
-            Planning an Event?{' '}
-            <span className="text-gradient-warm">Let Us Handle the Food.</span>
+            Have a great idea for an event?{' '}
+            <span className="text-gradient-warm">We&apos;d love to help.</span>
           </h2>
 
           <p className="mb-10 max-w-lg text-base leading-relaxed text-white/65">
-            From the first consultation to the final bite, Pauleen&apos;s Catering handles
-            every detail. Request a quote today and let&apos;s create something unforgettable.
+            We&apos;d love to help you curate an unforgettable experience. Contact us today
+            and we&apos;ll work with you from start to finish.
           </p>
 
           <div className="flex flex-wrap gap-4">
             <Link href="/contact" className="btn-primary">
-              Request a Free Quote
+              Get a Quote!
               <svg className="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
               </svg>
@@ -52,23 +51,6 @@ export default function CTABanner() {
               </svg>
               {SITE_CONFIG.phone}
             </Link>
-          </div>
-
-          {/* Trust items */}
-          <div className="mt-12 flex flex-wrap gap-6">
-            {[
-              'Free Consultation',
-              'Custom Menus',
-              'Full-Service Setup',
-              'Reliable & Professional',
-            ].map((item) => (
-              <div key={item} className="flex items-center gap-2 text-sm text-white/60">
-                <svg className="h-4 w-4 text-accent" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2.5} d="M5 13l4 4L19 7" />
-                </svg>
-                {item}
-              </div>
-            ))}
           </div>
         </div>
       </div>

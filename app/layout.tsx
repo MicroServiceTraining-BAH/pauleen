@@ -21,24 +21,24 @@ const poppins = Poppins({
 
 export const metadata: Metadata = {
   title: {
-    default: "Pauleen's Catering & Events | Caribbean Catering in Leesburg, VA",
-    template: "%s | Pauleen's Catering & Events",
+    default: "Pauleen's by Chef Ji | Catering & Events — Northern Virginia & DMV",
+    template: "%s | Pauleen's by Chef Ji",
   },
   description:
-    "Authentic Caribbean and Jamaican-inspired catering for weddings, corporate events, and private celebrations. Chef Ji brings bold island flavors to your event in Leesburg, VA.",
+    "Pauleen's Catering & Events by Chef Jimmie Salonie — a modern artisan chef dedicated to crafting food, drink, and service that is often imitated but rarely equalled. Serving Northern Virginia & the DMV.",
   keywords: [
-    'Caribbean catering',
-    'Jamaican catering near me',
-    'event catering services',
-    'wedding catering Caribbean food',
-    'catering Leesburg VA',
+    'catering Northern Virginia',
+    'catering DMV',
     'private chef Virginia',
+    'event catering Leesburg VA',
     'corporate catering Northern Virginia',
+    'private dinner catering',
+    'culinary classes Northern Virginia',
   ],
   openGraph: {
-    title: "Pauleen's Catering & Events | Caribbean Catering",
+    title: "Pauleen's by Chef Ji | Catering & Events",
     description:
-      'Authentic Caribbean flavors for weddings, events, and corporate gatherings.',
+      "A modern artisan chef dedicated to crafting food, drink, and service that is often imitated but rarely equalled. Serving Northern Virginia & the DMV.",
     type: 'website',
     locale: 'en_US',
   },

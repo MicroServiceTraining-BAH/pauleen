@@ -6,24 +6,22 @@ import { useState } from 'react';
 import { EVENT_TYPES, SITE_CONFIG } from '@/lib/constants';
 
 type FormState = {
-  name: string;
-  phone: string;
+  firstName: string;
+  lastName: string;
   email: string;
+  phone: string;
   eventType: string;
-  eventDate: string;
-  guestCount: string;
   message: string;
 };
 
-type SubmitStatus = 'idle' | 'submitting' | 'success' | 'error';
+type SubmitStatus = 'idle' | 'submitting' | 'success';
 
 const INITIAL_FORM: FormState = {
-  name: '',
-  phone: '',
+  firstName: '',
+  lastName: '',
   email: '',
+  phone: '',
   eventType: '',
-  eventDate: '',
-  guestCount: '',
   message: '',
 };
 
@@ -34,13 +32,9 @@ export default function ContactSection() {
 
   const validate = (): boolean => {
     const newErrors: Partial<FormState> = {};
-    if (!form.name.trim()) newErrors.name = 'Name is required.';
-    if (!form.email.trim()) newErrors.email = 'Email is required.';
-    else if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(form.email))
-      newErrors.email = 'Enter a valid email address.';
-    if (!form.phone.trim()) newErrors.phone = 'Phone number is required.';
-    if (!form.eventType) newErrors.eventType = 'Please select an event type.';
-    if (!form.message.trim()) newErrors.message = 'Please tell us about your event.';
+    if (!form.firstName.trim()) newErrors.firstName = 'First name is required.';
+    if (!form.lastName.trim()) newErrors.lastName = 'Last name is required.';
+    if (!form.message.trim()) newErrors.message = 'Please include a message.';
     setErrors(newErrors);
     return Object.keys(newErrors).length === 0;
   };
@@ -55,24 +49,23 @@ export default function ContactSection() {
     }
   };
 
-  const handleSubmit = async (e: React.FormEvent) => {
+  const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
     if (!validate()) return;
     setStatus('submitting');
 
-    // Mailto fallback — opens email client with form data
     const subject = encodeURIComponent(
-      `Catering Quote Request — ${form.eventType} — ${form.name}`
+      `Catering Inquiry — ${form.firstName} ${form.lastName}${form.eventType ? ` — ${form.eventType}` : ''}`
     );
     const body = encodeURIComponent(
-      `Name: ${form.name}\nPhone: ${form.phone}\nEmail: ${form.email}\nEvent Type: ${form.eventType}\nEvent Date: ${form.eventDate || 'TBD'}\nGuest Count: ${form.guestCount || 'TBD'}\n\nMessage:\n${form.message}`
+      `First Name: ${form.firstName}\nLast Name: ${form.lastName}\nPhone: ${form.phone || 'Not provided'}\nEmail: ${form.email || 'Not provided'}\nEvent Type: ${form.eventType || 'Not specified'}\n\nMessage:\n${form.message}`
     );
     window.location.href = `mailto:${SITE_CONFIG.email}?subject=${subject}&body=${body}`;
 
     setTimeout(() => {
       setStatus('success');
       setForm(INITIAL_FORM);
-    }, 500);
+    }, 600);
   };
 
   return (
@@ -83,17 +76,15 @@ export default function ContactSection() {
           <div>
             <span className="section-tag mb-6 block w-fit">Get in Touch</span>
             <h2 className="heading-section mb-5 text-balance">
-              Let&apos;s Plan Your{' '}
-              <span className="text-gradient-warm">Perfect Event</span>
+              Let&apos;s <span className="text-gradient-warm">Chat</span>
             </h2>
             <div className="divider-gold mb-8" />
             <p className="mb-10 text-base leading-relaxed text-primary/60">
-              Ready to bring authentic Caribbean cuisine to your next event? Fill out
-              the form and {SITE_CONFIG.chefAlias} will get back to you within 24 hours
-              with a personalized quote.
+              Thank you for taking a look around! If you have questions regarding any of
+              our services, or if you would simply like to chat, please feel free to reach
+              out today!
             </p>
 
-            {/* Contact details */}
             <div className="space-y-5">
               <ContactDetail
                 icon={
@@ -127,7 +118,6 @@ export default function ContactSection() {
               />
             </div>
 
-            {/* Social */}
             <div className="mt-10">
               <p className="mb-4 text-xs font-semibold uppercase tracking-widest text-primary/40">
                 Follow Us
@@ -156,111 +146,78 @@ export default function ContactSection() {
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
                   </svg>
                 </div>
-                <h3 className="font-display text-2xl font-bold text-primary">
-                  Quote Request Sent!
-                </h3>
+                <h3 className="font-display text-2xl font-bold text-primary">Message Sent!</h3>
                 <p className="mt-3 text-sm text-primary/60">
-                  Thank you for reaching out. {SITE_CONFIG.chefAlias} will be in touch
-                  within 24 hours.
+                  Thank you for reaching out. {SITE_CONFIG.chefAlias} will be in touch with you shortly.
                 </p>
-                <button
-                  onClick={() => setStatus('idle')}
-                  className="btn-primary mt-6"
-                >
-                  Send Another Request
+                <button onClick={() => setStatus('idle')} className="btn-primary mt-6">
+                  Send Another Message
                 </button>
               </div>
             ) : (
               <form onSubmit={handleSubmit} noValidate className="space-y-5">
                 <div className="grid gap-5 sm:grid-cols-2">
                   <FormField
-                    label="Full Name"
-                    name="name"
+                    label="First Name"
+                    name="firstName"
                     type="text"
-                    value={form.name}
-                    error={errors.name}
-                    placeholder="Jane Smith"
+                    value={form.firstName}
+                    error={errors.firstName}
+                    placeholder="Jane"
                     onChange={handleChange}
                     required
                   />
                   <FormField
-                    label="Phone Number"
-                    name="phone"
-                    type="tel"
-                    value={form.phone}
-                    error={errors.phone}
-                    placeholder="(555) 000-0000"
+                    label="Last Name"
+                    name="lastName"
+                    type="text"
+                    value={form.lastName}
+                    error={errors.lastName}
+                    placeholder="Smith"
                     onChange={handleChange}
                     required
                   />
                 </div>
 
                 <FormField
-                  label="Email Address"
+                  label="Phone"
+                  name="phone"
+                  type="tel"
+                  value={form.phone}
+                  placeholder="(555) 000-0000"
+                  onChange={handleChange}
+                />
+
+                <FormField
+                  label="Email"
                   name="email"
                   type="email"
                   value={form.email}
-                  error={errors.email}
                   placeholder="jane@example.com"
                   onChange={handleChange}
-                  required
                 />
 
                 <div>
-                  <label
-                    htmlFor="eventType"
-                    className="mb-1.5 block text-sm font-medium text-primary"
-                  >
-                    Event Type <span className="text-accent">*</span>
+                  <label htmlFor="eventType" className="mb-1.5 block text-sm font-medium text-primary">
+                    Event Type
                   </label>
                   <select
                     id="eventType"
                     name="eventType"
                     value={form.eventType}
                     onChange={handleChange}
-                    required
-                    className={`w-full rounded-xl border px-4 py-3 text-sm transition-colors focus:outline-none focus:ring-2 focus:ring-accent/30 ${
-                      errors.eventType
-                        ? 'border-red-400 bg-red-50'
-                        : 'border-primary/15 bg-surface'
-                    }`}
+                    className="w-full rounded-xl border border-primary/15 bg-surface px-4 py-3 text-sm focus:outline-none focus:ring-2 focus:ring-accent/30"
                   >
                     <option value="">Select event type...</option>
                     {EVENT_TYPES.map((type) => (
-                      <option key={type} value={type}>
-                        {type}
-                      </option>
+                      <option key={type} value={type}>{type}</option>
                     ))}
                   </select>
-                  {errors.eventType && (
-                    <p className="mt-1 text-xs text-red-500">{errors.eventType}</p>
-                  )}
-                </div>
-
-                <div className="grid gap-5 sm:grid-cols-2">
-                  <FormField
-                    label="Event Date"
-                    name="eventDate"
-                    type="date"
-                    value={form.eventDate}
-                    onChange={handleChange}
-                  />
-                  <FormField
-                    label="Guest Count"
-                    name="guestCount"
-                    type="number"
-                    value={form.guestCount}
-                    placeholder="e.g. 75"
-                    onChange={handleChange}
-                  />
                 </div>
 
                 <div>
-                  <label
-                    htmlFor="message"
-                    className="mb-1.5 block text-sm font-medium text-primary"
-                  >
-                    Tell Us About Your Event <span className="text-accent">*</span>
+                  <label htmlFor="message" className="mb-1.5 block text-sm font-medium text-primary">
+                    Message <span className="text-accent">*</span>
                   </label>
                   <textarea
                     id="message"
@@ -269,11 +226,9 @@ export default function ContactSection() {
                     onChange={handleChange}
                     required
                     rows={4}
-                    placeholder="Describe your event, cuisine preferences, dietary needs, and any special requests..."
-                    className={`w-full resize-none rounded-xl border px-4 py-3 text-sm transition-colors focus:outline-none focus:ring-2 focus:ring-accent/30 ${
-                      errors.message
-                        ? 'border-red-400 bg-red-50'
-                        : 'border-primary/15 bg-surface'
+                    placeholder="Tell us about your event or inquiry..."
+                    className={`w-full resize-none rounded-xl border px-4 py-3 text-sm focus:outline-none focus:ring-2 focus:ring-accent/30 ${
+                      errors.message ? 'border-red-400 bg-red-50' : 'border-primary/15 bg-surface'
                     }`}
                   />
                   {errors.message && (
@@ -292,20 +247,15 @@ export default function ContactSection() {
                         <circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4" />
                         <path className="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4z" />
                       </svg>
-                      Sending Request...
+                      Sending...
                     </>
                   ) : (
-                    <>
-                      Send Quote Request
-                      <svg className="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 19l9 2-9-18-9 18 9-2zm0 0v-8" />
-                      </svg>
-                    </>
+                    "Let's Chat!"
                   )}
                 </button>
 
                 <p className="text-center text-xs text-primary/40">
-                  Or call us directly at{' '}
+                  Or call us at{' '}
                   <Link href={SITE_CONFIG.phoneHref} className="text-accent hover:underline">
                     {SITE_CONFIG.phone}
                   </Link>
@@ -330,16 +280,7 @@ type FormFieldProps = {
   onChange: (e: React.ChangeEvent<HTMLInputElement>) => void;
 };
 
-function FormField({
-  label,
-  name,
-  type,
-  value,
-  error,
-  placeholder,
-  required = false,
-  onChange,
-}: FormFieldProps) {
+function FormField({ label, name, type, value, error, placeholder, required = false, onChange }: FormFieldProps) {
   return (
     <div>
       <label htmlFor={name} className="mb-1.5 block text-sm font-medium text-primary">
@@ -353,7 +294,7 @@ function FormField({
         onChange={onChange}
         placeholder={placeholder}
         required={required}
-        className={`w-full rounded-xl border px-4 py-3 text-sm transition-colors focus:outline-none focus:ring-2 focus:ring-accent/30 ${
+        className={`w-full rounded-xl border px-4 py-3 text-sm focus:outline-none focus:ring-2 focus:ring-accent/30 ${
           error ? 'border-red-400 bg-red-50' : 'border-primary/15 bg-surface'
         }`}
       />
@@ -370,36 +311,25 @@ type ContactDetailProps = {
 };
 
 function ContactDetail({ icon, label, value, href }: ContactDetailProps) {
-  const content = (
+  const inner = (
     <div className="flex items-start gap-4">
       <div className="flex h-10 w-10 flex-shrink-0 items-center justify-center rounded-full bg-accent/10 text-accent">
         {icon}
       </div>
       <div>
-        <p className="text-xs font-semibold uppercase tracking-widest text-primary/40">
-          {label}
-        </p>
+        <p className="text-xs font-semibold uppercase tracking-widest text-primary/40">{label}</p>
         <p className="mt-0.5 text-sm font-medium text-primary">{value}</p>
       </div>
     </div>
   );
-
-  if (href) {
-    return (
-      <Link href={href} className="group block transition-opacity hover:opacity-80">
-        {content}
-      </Link>
-    );
-  }
-
-  return <div>{content}</div>;
+  return href ? (
+    <Link href={href} className="block transition-opacity hover:opacity-80">{inner}</Link>
+  ) : (
+    <div>{inner}</div>
+  );
 }
 
-type SocialLinkProps = {
-  href: string;
-  label: string;
-  children: React.ReactNode;
-};
+type SocialLinkProps = { href: string; label: string; children: React.ReactNode };
 
 function SocialLink({ href, label, children }: SocialLinkProps) {
   return (
