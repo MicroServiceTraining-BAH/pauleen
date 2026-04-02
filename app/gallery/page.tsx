@@ -3,23 +3,25 @@ import Image from 'next/image';
 import Link from 'next/link';
 
 import Footer from '@/components/Footer';
+import GalleryViewer from '@/components/GalleryViewer';
 import Navbar from '@/components/Navbar';
 import { IMAGES, SITE_CONFIG } from '@/lib/constants';
 
 export const metadata: Metadata = {
   title: 'Gallery',
   description:
-    "Browse Pauleen's Catering event gallery — real photos from real events including weddings, corporate gatherings, and private celebrations across Northern Virginia.",
+    "Browse Pauleen's Catering event gallery — real photos from real events and catering spreads across Northern Virginia.",
 };
 
-export default function GalleryPage() {
-  const allImages = [
-    ...IMAGES.gallery,
-    IMAGES.menu1,
-    IMAGES.menu2,
-    IMAGES.heroAlt,
-  ];
+// All real images from pauleenscatering.com
+const ALL_IMAGES = [
+  ...IMAGES.gallery,
+  IMAGES.menu1,
+  IMAGES.menu2,
+  IMAGES.heroAlt,
+] as const;
 
+export default function GalleryPage() {
   return (
     <>
       <Navbar />
@@ -29,7 +31,7 @@ export default function GalleryPage() {
           <div className="absolute inset-0">
             <Image
               src={IMAGES.gallery[5]}
-              alt="Gallery"
+              alt="Pauleen's Catering event"
               fill
               className="object-cover opacity-25"
               sizes="100vw"
@@ -37,34 +39,31 @@ export default function GalleryPage() {
             <div className="absolute inset-0 bg-gradient-to-b from-primary/80 to-primary/95" />
           </div>
           <div className="relative z-10 mx-auto max-w-7xl px-6 lg:px-12">
-            <span className="section-tag-light mb-4 block w-fit">Our Work</span>
+            <span className="section-tag-light mb-4 block w-fit">Bon Appétit</span>
             <h1 className="heading-display-light mb-4 text-balance">
-              Every Event,{' '}
-              <span className="text-gradient-warm">a Masterpiece</span>
+              Our <span className="text-gradient-warm">Gallery</span>
             </h1>
             <p className="max-w-xl text-lg text-white/60">
-              Real photos from real events. A window into the flavors, presentations,
-              and memories we help create.
+              Real photos from real events. Click any image to view full screen
+              and browse with the carousel.
             </p>
           </div>
         </section>
 
-        {/* Gallery Grid */}
+        {/* Full gallery */}
         <section className="bg-surface py-20 lg:py-28">
           <div className="mx-auto max-w-7xl px-6 lg:px-12">
-            {/* Masonry */}
-            <div className="columns-2 gap-4 md:columns-3 lg:columns-4">
-              {allImages.map((src, i) => (
-                <GalleryItem key={`${src}-${i}`} src={src} index={i} />
-              ))}
-            </div>
+            <GalleryViewer
+              images={ALL_IMAGES}
+              columns="grid-cols-2 sm:grid-cols-3 lg:grid-cols-4"
+            />
 
-            <div className="mt-16 flex flex-col items-center text-center">
-              <p className="mb-6 text-base text-primary/60">
-                Want to see your event here? Let&apos;s create something beautiful together.
+            <div className="mt-16 flex flex-col items-center gap-4 text-center">
+              <p className="text-base text-primary/60">
+                Want your event featured here? Let&apos;s create something beautiful.
               </p>
               <div className="flex flex-wrap justify-center gap-4">
-                <Link href="/contact" className="btn-primary">Request a Quote</Link>
+                <Link href="/contact" className="btn-primary">Get a Quote!</Link>
                 <Link href={SITE_CONFIG.phoneHref} className="btn-dark">
                   {SITE_CONFIG.phone}
                 </Link>
@@ -75,36 +74,5 @@ export default function GalleryPage() {
       </main>
       <Footer />
     </>
-  );
-}
-
-type GalleryItemProps = {
-  src: string;
-  index: number;
-};
-
-function GalleryItem({ src, index }: GalleryItemProps) {
-  const heights = [
-    'aspect-square',
-    'aspect-[3/4]',
-    'aspect-[4/5]',
-    'aspect-video',
-    'aspect-[3/4]',
-    'aspect-square',
-    'aspect-[4/5]',
-  ];
-  const aspectClass = heights[index % heights.length];
-
-  return (
-    <div className={`group relative mb-4 overflow-hidden rounded-xl ${aspectClass} break-inside-avoid`}>
-      <Image
-        src={src}
-        alt={`Pauleen's Catering — event photo ${index + 1}`}
-        fill
-        className="object-cover transition-transform duration-700 group-hover:scale-110"
-        sizes="(max-width: 768px) 50vw, (max-width: 1200px) 33vw, 25vw"
-      />
-      <div className="absolute inset-0 bg-primary/0 transition-all duration-500 group-hover:bg-primary/20" />
-    </div>
   );
 }
