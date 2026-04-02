@@ -1,6 +1,7 @@
 import type { Metadata } from 'next';
 import { Cormorant_Garamond, Poppins } from 'next/font/google';
 
+import ScrollToTop from '@/components/ScrollToTop';
 import StickyMobileCTA from '@/components/StickyMobileCTA';
 
 import './globals.css';
@@ -52,6 +53,7 @@ export default function RootLayout({ children }: RootLayoutProps) {
   return (
     <html lang="en" className={`${cormorant.variable} ${poppins.variable}`}>
       <body className="antialiased">
+        <ScrollToTop />
         {children}
         <StickyMobileCTA />
       </body>

@@ -22,7 +22,8 @@
 
 @layer base {
   html {
-    scroll-behavior: smooth;
+    /* scroll-behavior: smooth intentionally omitted — causes page to animate
+       into restored scroll position on load, making it appear scrolled down */
   }
 
   body {
