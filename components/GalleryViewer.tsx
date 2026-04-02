@@ -176,7 +176,7 @@ export default function GalleryViewer({
           </button>
 
           {/* Dot strip — bottom nav */}
-          <div className="absolute bottom-5 left-1/2 z-10 flex -translate-x-1/2 items-center gap-1.5 overflow-hidden">
+          <div className="absolute bottom-5 left-1/2 z-10 flex -translate-x-1/2 items-center gap-2 rounded-full bg-black/60 px-4 py-2.5 backdrop-blur-sm ring-1 ring-white/10">
             {images.map((_, i) => (
               <button
                 key={i}
@@ -184,8 +184,8 @@ export default function GalleryViewer({
                 aria-label={`Go to photo ${i + 1}`}
                 className={`rounded-full transition-all duration-300 ${
                   i === activeIndex
-                    ? 'h-2 w-6 bg-accent'
-                    : 'h-2 w-2 bg-white/30 hover:bg-white/60'
+                    ? 'h-3 w-8 bg-accent shadow-[0_0_8px_rgba(249,115,22,0.8)]'
+                    : 'h-3 w-3 bg-white/50 hover:bg-white'
                 }`}
               />
             ))}
