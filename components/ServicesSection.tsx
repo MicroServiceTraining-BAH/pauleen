@@ -51,7 +51,7 @@ function ServiceCard({ service }: ServiceCardProps) {
       <div className="relative h-52 overflow-hidden">
         <Image
           src={service.image}
-          alt={`${service.title} — Pauleen's by Chef Ji`}
+          alt={`${service.title} — Pauleen's Catering & Events`}
           fill
           className="object-cover transition-transform duration-700 group-hover:scale-110"
           sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"

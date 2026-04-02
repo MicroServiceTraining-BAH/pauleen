@@ -9,7 +9,7 @@ import { IMAGES, SERVICES, SITE_CONFIG } from '@/lib/constants';
 export const metadata: Metadata = {
   title: 'Services',
   description:
-    "Pauleen's by Chef Ji offers Event Catering, Private Chef, and Recipe Development services throughout Northern Virginia and the DMV area.",
+    "Pauleen's Catering & Events offers Event Catering, Private Chef, and Recipe Development services throughout Northern Virginia and the DMV area.",
 };
 
 export default function ServicesPage() {

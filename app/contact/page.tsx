@@ -9,7 +9,7 @@ import { IMAGES } from '@/lib/constants';
 export const metadata: Metadata = {
   title: 'Contact & Quote',
   description:
-    "Request a catering quote from Pauleen's Catering & Events. Tell us about your event and Chef Ji will respond within 24 hours with a personalized menu proposal.",
+    "Request a catering quote from Pauleen's Catering & Events. Tell us about your event and Chef Jimmie Salonie will respond with a personalized proposal.",
 };
 
 export default function ContactPage() {
@@ -36,7 +36,7 @@ export default function ContactPage() {
               <span className="text-gradient-warm">Perfect Event</span>
             </h1>
             <p className="max-w-xl text-lg text-white/60">
-              Fill out the form below and Chef Ji will be in touch within 24 hours
+              Fill out the form below and Chef Jimmie Salonie will be in touch
               with a personalized quote for your event.
             </p>
           </div>

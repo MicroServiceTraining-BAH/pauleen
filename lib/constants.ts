@@ -1,7 +1,7 @@
 export const SITE_CONFIG = {
   name: "Pauleen's Catering & Events",
   shortName: "Pauleen's",
-  brandName: "Pauleen's by Chef Ji",
+  brandName: "Pauleen's Catering & Events",
   tagline: "Life is a banquet and tastes so much better when it's prepared for you.",
   taglineAttribution: '— Chef Jimmie Salonie',
   subTagline: 'Servicing Northern Virginia & the DMV',
@@ -13,7 +13,7 @@ export const SITE_CONFIG = {
   city: 'Leesburg, VA 20175',
   founded: '2009',
   chef: 'Chef Jimmie Salonie',
-  chefAlias: 'Chef Ji',
+  chefAlias: 'Chef Jimmie',
   partner: "Michael O'Neill",
   partnerTitle: 'Hospitality Director',
   social: {

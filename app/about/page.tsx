@@ -9,7 +9,7 @@ import { IMAGES, SITE_CONFIG } from '@/lib/constants';
 export const metadata: Metadata = {
   title: 'About',
   description:
-    "Learn the story behind Pauleen's by Chef Ji — founded in 2009 by Chef Jimmie Salonie, a modern artisan chef dedicated to crafting food, drink, and service that is often imitated but rarely equalled.",
+    "Learn the story behind Pauleen's Catering & Events — founded in 2009 by Chef Jimmie Salonie, a modern artisan chef dedicated to crafting food, drink, and service that is often imitated but rarely equalled.",
 };
 
 export default function AboutPage() {
