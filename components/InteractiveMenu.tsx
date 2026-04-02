@@ -13,6 +13,7 @@ export default function InteractiveMenu() {
   const [lightboxOpen, setLightboxOpen] = useState(false);
   const [lightboxImg, setLightboxImg] = useState(0);
   const tabsRef = useRef<HTMLDivElement>(null);
+  const mountedRef = useRef(false);
 
   const activeCategory = MENU_CATEGORIES.find((c) => c.id === activeId)!;
 
@@ -25,8 +26,12 @@ export default function InteractiveMenu() {
     }, 180);
   };
 
-  // Scroll active tab into view on mobile
+  // Scroll active tab into view on mobile — skip initial mount to avoid page scroll on load
   useEffect(() => {
+    if (!mountedRef.current) {
+      mountedRef.current = true;
+      return;
+    }
     const el = tabsRef.current?.querySelector(`[data-tab="${activeId}"]`) as HTMLElement;
     el?.scrollIntoView({ behavior: 'smooth', block: 'nearest', inline: 'center' });
   }, [activeId]);
