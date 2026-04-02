@@ -4,7 +4,7 @@ import ContactSection from '@/components/ContactSection';
 import Footer from '@/components/Footer';
 import GallerySection from '@/components/GallerySection';
 import Hero from '@/components/Hero';
-import MenuHighlights from '@/components/MenuHighlights';
+import InteractiveMenu from '@/components/InteractiveMenu';
 import Navbar from '@/components/Navbar';
 import ServicesSection from '@/components/ServicesSection';
 import TrustBar from '@/components/TrustBar';
@@ -18,7 +18,7 @@ export default function HomePage() {
         <TrustBar />
         <ServicesSection />
         <AboutSection />
-        <MenuHighlights />
+        <InteractiveMenu />
         <GallerySection />
         <CTABanner />
         <ContactSection />
