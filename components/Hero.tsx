@@ -11,7 +11,7 @@ export default function Hero() {
         src={IMAGES.hero}
         alt="Elegant catering spread by Pauleen's Catering"
         fill
-        className="object-cover object-center"
+        className="object-cover object-top"
         priority
         sizes="100vw"
         quality={90}
@@ -25,7 +25,7 @@ export default function Hero() {
       <div className="absolute left-0 top-0 h-1 w-full bg-gradient-to-r from-accent via-gold to-accent" />
 
       {/* Content */}
-      <div className="relative z-10 mx-auto flex min-h-screen max-w-7xl flex-col items-start justify-center px-6 py-32 lg:px-12">
+      <div className="relative z-10 mx-auto flex min-h-screen max-w-7xl flex-col items-start justify-end px-6 pb-24 pt-32 lg:px-12">
         <div className="max-w-2xl">
           {/* Location tag */}
           <div className="mb-6 animate-fade-in opacity-0-init" style={{ animationFillMode: 'forwards' }}>
