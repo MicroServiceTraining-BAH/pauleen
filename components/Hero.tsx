@@ -11,11 +11,15 @@ export default function Hero() {
       {/* Decorative large brand name */}
       <div
         aria-hidden="true"
-        className="pointer-events-none absolute inset-x-0 top-16 flex items-start justify-center overflow-hidden"
+        className="pointer-events-none absolute inset-x-0 top-16 overflow-hidden"
+        style={{
+          maskImage: 'linear-gradient(to right, transparent, white 20%, white 80%, transparent)',
+          WebkitMaskImage: 'linear-gradient(to right, transparent, white 20%, white 80%, transparent)',
+        }}
       >
-        <span className="select-none font-display text-[18vw] font-bold leading-none text-white/20">
-          {SITE_CONFIG.shortName.toUpperCase()}
-        </span>
+        <p className="select-none text-center font-display text-[16vw] font-bold uppercase leading-none tracking-widest text-white/10">
+          {SITE_CONFIG.shortName}
+        </p>
       </div>
 
       {/* Content */}
