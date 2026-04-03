@@ -1,28 +1,22 @@
-import Image from 'next/image';
 import Link from 'next/link';
 
-import { IMAGES, SITE_CONFIG } from '@/lib/constants';
+import { SITE_CONFIG } from '@/lib/constants';
 
 export default function Hero() {
   return (
-    <section className="relative h-screen w-full overflow-hidden">
-      {/* Background Image */}
-      <Image
-        src={IMAGES.hero}
-        alt="Elegant catering spread by Pauleen's Catering"
-        fill
-        className="object-cover object-bottom"
-        priority
-        sizes="100vw"
-        quality={90}
-      />
-
-      {/* Layered Overlays */}
-      <div className="absolute inset-0 bg-gradient-to-r from-primary/90 via-primary/60 to-primary/30" />
-      <div className="absolute inset-0 bg-gradient-to-t from-primary/60 via-transparent to-primary/10" />
-
+    <section className="relative h-screen w-full overflow-hidden bg-primary">
       {/* Top accent bar */}
-      <div className="absolute left-0 top-0 h-1 w-full bg-gradient-to-r from-accent via-gold to-accent" />
+      <div className="absolute left-0 top-0 h-px w-full bg-gradient-to-r from-transparent via-white/20 to-transparent" />
+
+      {/* Decorative large brand name */}
+      <div
+        aria-hidden="true"
+        className="pointer-events-none absolute inset-0 flex items-end justify-end overflow-hidden"
+      >
+        <span className="select-none font-display text-[20vw] font-bold leading-none text-white/5 translate-y-6">
+          {SITE_CONFIG.shortName.toUpperCase()}
+        </span>
+      </div>
 
       {/* Content */}
       <div className="relative z-10 mx-auto flex h-full max-w-7xl flex-col items-start justify-end px-6 pb-20 pt-24 lg:px-12">
@@ -35,22 +29,22 @@ export default function Hero() {
             </span>
           </div>
 
-          {/* Real tagline as hero quote */}
+          {/* Tagline */}
           <blockquote
             className="mb-4 animate-fade-up opacity-0-init"
             style={{ animationDelay: '150ms', animationFillMode: 'forwards' }}
           >
-            <p className="font-display text-4xl font-bold leading-tight text-white md:text-5xl lg:text-6xl text-balance">
+            <p className="text-balance font-display text-4xl font-bold leading-tight text-white md:text-5xl lg:text-6xl">
               &ldquo;{SITE_CONFIG.tagline}&rdquo;
             </p>
-            <footer className="mt-4 text-sm font-medium uppercase tracking-widest text-accent">
+            <footer className="mt-4 text-sm font-medium uppercase tracking-widest text-white/50">
               {SITE_CONFIG.taglineAttribution}
             </footer>
           </blockquote>
 
           {/* Sub copy */}
           <p
-            className="mb-10 max-w-lg animate-fade-up text-lg leading-relaxed text-white/70 opacity-0-init"
+            className="mb-10 max-w-lg animate-fade-up text-lg leading-relaxed text-white/50 opacity-0-init"
             style={{ animationDelay: '300ms', animationFillMode: 'forwards' }}
           >
             Let us cater your next event!
@@ -79,8 +73,8 @@ export default function Hero() {
 
       {/* Scroll indicator */}
       <div className="absolute bottom-8 left-1/2 z-10 flex -translate-x-1/2 animate-bounce flex-col items-center gap-2">
-        <span className="text-xs font-medium uppercase tracking-widest text-white/40">Scroll</span>
-        <div className="h-8 w-px bg-gradient-to-b from-white/40 to-transparent" />
+        <span className="text-xs font-medium uppercase tracking-widest text-white/30">Scroll</span>
+        <div className="h-8 w-px bg-gradient-to-b from-white/30 to-transparent" />
       </div>
     </section>
   );
