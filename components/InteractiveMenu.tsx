@@ -13,7 +13,6 @@ export default function InteractiveMenu() {
   const [lightboxOpen, setLightboxOpen] = useState(false);
   const [lightboxImg, setLightboxImg] = useState(0);
   const tabsRef = useRef<HTMLDivElement>(null);
-  const mountedRef = useRef(false);
 
   const activeCategory = MENU_CATEGORIES.find((c) => c.id === activeId)!;
 
@@ -26,14 +25,13 @@ export default function InteractiveMenu() {
     }, 180);
   };
 
-  // Scroll active tab into view on mobile — skip initial mount to avoid page scroll on load
+  // Scroll active tab into view on mobile — only scrolls the tab bar, never the page
   useEffect(() => {
-    if (!mountedRef.current) {
-      mountedRef.current = true;
-      return;
-    }
-    const el = tabsRef.current?.querySelector(`[data-tab="${activeId}"]`) as HTMLElement;
-    el?.scrollIntoView({ behavior: 'smooth', block: 'nearest', inline: 'center' });
+    const container = tabsRef.current;
+    const el = container?.querySelector(`[data-tab="${activeId}"]`) as HTMLElement;
+    if (!container || !el) return;
+    const offset = el.offsetLeft - container.offsetWidth / 2 + el.offsetWidth / 2;
+    container.scrollTo({ left: offset, behavior: 'smooth' });
   }, [activeId]);
 
   const menuImages = [IMAGES.menu1, IMAGES.menu2];

@@ -13,18 +13,16 @@ export default function Hero() {
         aria-hidden="true"
         className="pointer-events-none absolute inset-x-0 top-14 overflow-hidden"
         style={{
-          maskImage: 'linear-gradient(to right, transparent, white 15%, white 85%, transparent)',
-          WebkitMaskImage: 'linear-gradient(to right, transparent, white 15%, white 85%, transparent)',
+          maskImage: 'linear-gradient(to right, transparent, white 10%, white 90%, transparent)',
+          WebkitMaskImage: 'linear-gradient(to right, transparent, white 10%, white 90%, transparent)',
         }}
       >
-        <div className="mx-auto max-w-7xl px-6 lg:px-12">
-          <p
-            className="select-none text-left leading-none text-white/[0.07]"
-            style={{ fontFamily: 'var(--font-playfair)', fontSize: 'clamp(80px, 14vw, 200px)', fontWeight: 900, letterSpacing: '-0.02em' }}
-          >
-            {SITE_CONFIG.shortName}
-          </p>
-        </div>
+        <p
+          className="select-none text-center leading-none text-white/[0.08]"
+          style={{ fontFamily: 'var(--font-playfair)', fontSize: 'clamp(48px, 13vw, 200px)', fontWeight: 900, letterSpacing: '-0.02em' }}
+        >
+          {SITE_CONFIG.shortName}
+        </p>
       </div>
 
       {/* Content */}
