@@ -11,7 +11,7 @@ export default function ServicesSection() {
         <div className="mb-16 flex flex-col items-center text-center">
           <span className="section-tag mb-4">What We Offer</span>
           <h2 className="heading-section mb-5 text-balance">
-            Our <span className="text-gradient-warm">Services</span>
+            Our <span className="text-primary">Services</span>
           </h2>
           <div className="divider-gold mb-5" />
           <p className="max-w-xl text-base leading-relaxed text-primary/60">
@@ -46,7 +46,7 @@ type ServiceCardProps = {
 
 function ServiceCard({ service }: ServiceCardProps) {
   return (
-    <article className="group relative flex flex-col overflow-hidden rounded-2xl bg-white shadow-sm transition-all duration-500 hover:-translate-y-2 hover:shadow-warm-lg">
+    <article className="group relative flex flex-col overflow-hidden rounded-2xl bg-white shadow-sm transition-all duration-500 hover:-translate-y-2 hover:shadow-dark-lg">
       {/* Image */}
       <div className="relative h-52 overflow-hidden">
         <Image
@@ -57,24 +57,24 @@ function ServiceCard({ service }: ServiceCardProps) {
           sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
         />
         <div className="absolute inset-0 bg-gradient-to-t from-primary/60 via-transparent to-transparent" />
-        <div className="absolute bottom-4 left-4 h-1 w-10 rounded-full bg-accent shadow-warm-lg" />
+        <div className="absolute bottom-4 left-4 h-1 w-10 rounded-full bg-accent shadow-dark-lg" />
       </div>
 
       {/* Content */}
       <div className="flex flex-1 flex-col p-6">
-        <p className="mb-1 text-xs font-semibold uppercase tracking-widest text-accent">
+        <p className="mb-1 text-xs font-semibold uppercase tracking-widest text-secondary">
           {service.headline}
         </p>
         <h3 className="mb-2 font-display text-xl font-bold text-primary">
           {service.title}
         </h3>
-        <div className="mb-3 h-px w-10 bg-accent transition-all duration-300 group-hover:w-16" />
+        <div className="mb-3 h-px w-10 bg-secondary transition-all duration-300 group-hover:w-16" />
         <p className="flex-1 text-sm leading-relaxed text-primary/60">
           {service.description}
         </p>
         <Link
           href="/contact"
-          className="mt-5 inline-flex items-center gap-1.5 text-sm font-semibold text-accent transition-all duration-300 hover:gap-3"
+          className="mt-5 inline-flex items-center gap-1.5 text-sm font-semibold text-secondary transition-all duration-300 hover:gap-3"
         >
           {service.cta}
           <svg className="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">

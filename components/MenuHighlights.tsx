@@ -12,7 +12,7 @@ export default function MenuHighlights() {
           <span className="section-tag mb-4">Our Menus</span>
           <h2 className="heading-section mb-5 text-balance">
             Fresh, Delicious,{' '}
-            <span className="text-gradient-warm">Detail-Oriented</span>
+            <span className="text-primary">Detail-Oriented</span>
           </h2>
           <div className="divider-gold mb-5" />
           <p className="max-w-xl text-base leading-relaxed text-primary/60">
@@ -54,7 +54,7 @@ export default function MenuHighlights() {
           <div className="flex flex-col gap-5">
             <div className="rounded-2xl border border-primary/10 bg-white p-6 shadow-sm">
               <div className="mb-4 flex items-center gap-3">
-                <div className="h-1 w-6 rounded-full bg-accent" />
+                <div className="h-1 w-6 rounded-full bg-primary" />
                 <h3 className="font-display text-lg font-bold text-primary">
                   Featured Menu Items
                 </h3>
@@ -63,7 +63,7 @@ export default function MenuHighlights() {
                 {VERIFIED_MENU_ITEMS.map((item) => (
                   <li key={item} className="flex items-start gap-2 text-sm text-primary/65">
                     <svg
-                      className="mt-0.5 h-4 w-4 flex-shrink-0 text-accent"
+                      className="mt-0.5 h-4 w-4 flex-shrink-0 text-primary"
                       fill="none"
                       viewBox="0 0 24 24"
                       stroke="currentColor"
@@ -81,16 +81,16 @@ export default function MenuHighlights() {
               </ul>
             </div>
 
-            <div className="rounded-2xl border border-accent/20 bg-accent/5 p-5">
+            <div className="rounded-2xl border border-primary/15 bg-primary/5 p-5">
               <p className="text-sm font-medium text-primary/70">
-                <span className="font-bold text-accent">Fully customizable.</span>{' '}
+                <span className="font-bold text-primary">Fully customizable.</span>{' '}
                 We understand that no two events are the same, and we strive to customize
                 our services to fit whatever needs you may have, including specific
                 dietary guidelines.
               </p>
             </div>
 
-            <Link href="/contact" className="btn-primary self-start">
+            <Link href="/contact" className="btn-dark self-start">
               Get a Quote
             </Link>
           </div>

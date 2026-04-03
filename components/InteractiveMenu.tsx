@@ -70,7 +70,7 @@ export default function InteractiveMenu() {
               onClick={() => switchTab(cat.id)}
               className={`flex shrink-0 items-center gap-2 rounded-full px-5 py-2.5 text-sm font-semibold transition-all duration-200 focus:outline-none focus-visible:ring-2 focus-visible:ring-accent ${
                 activeId === cat.id
-                  ? 'bg-accent text-white shadow-warm-lg'
+                  ? 'bg-accent text-primary shadow-dark-lg'
                   : 'border border-white/15 bg-white/5 text-white/60 hover:border-white/30 hover:text-white'
               }`}
             >

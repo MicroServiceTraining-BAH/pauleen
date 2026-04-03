@@ -63,8 +63,8 @@ export default function GalleryPage() {
                 Want your event featured here? Let&apos;s create something beautiful.
               </p>
               <div className="flex flex-wrap justify-center gap-4">
-                <Link href="/contact" className="btn-primary">Get a Quote!</Link>
-                <Link href={SITE_CONFIG.phoneHref} className="btn-dark">
+                <Link href="/contact" className="btn-dark">Get a Quote!</Link>
+                <Link href={SITE_CONFIG.phoneHref} className="btn-outline-dark">
                   {SITE_CONFIG.phone}
                 </Link>
               </div>

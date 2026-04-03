@@ -7,7 +7,7 @@ export default function CTABanner() {
     <section className="relative overflow-hidden bg-primary py-24 lg:py-32">
       {/* Decorative glows */}
       <div className="absolute right-0 top-0 h-[500px] w-[500px] rounded-full bg-accent/8 blur-[140px]" />
-      <div className="absolute -left-8 bottom-0 h-[400px] w-[400px] rounded-full bg-secondary/15 blur-[120px]" />
+      <div className="absolute -left-8 bottom-0 h-[400px] w-[400px] rounded-full bg-white/5 blur-[120px]" />
 
       {/* Decorative rings */}
       <div className="absolute right-16 top-16 h-48 w-48 rounded-full border border-accent/15 opacity-60" />

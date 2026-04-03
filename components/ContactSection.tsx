@@ -96,7 +96,7 @@ export default function ContactSection() {
           <div>
             <span className="section-tag mb-6 block w-fit">Get in Touch</span>
             <h2 className="heading-section mb-5 text-balance">
-              Let&apos;s <span className="text-gradient-warm">Chat</span>
+              Let&apos;s <span className="text-primary">Chat</span>
             </h2>
             <div className="divider-gold mb-8" />
             <p className="mb-10 text-base leading-relaxed text-primary/60">
@@ -188,8 +188,8 @@ export default function ContactSection() {
               <div className="rounded-2xl bg-white p-8 shadow-sm lg:p-10">
                 {status === 'success' ? (
                   <div className="flex flex-col items-center py-12 text-center">
-                    <div className="mb-4 flex h-16 w-16 items-center justify-center rounded-full bg-accent/10">
-                      <svg className="h-8 w-8 text-accent" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <div className="mb-4 flex h-16 w-16 items-center justify-center rounded-full bg-primary/5">
+                      <svg className="h-8 w-8 text-primary" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
                       </svg>
                     </div>
@@ -197,7 +197,7 @@ export default function ContactSection() {
                     <p className="mt-3 text-sm text-primary/60">
                       Thank you for reaching out. {SITE_CONFIG.chefAlias} will be in touch with you shortly.
                     </p>
-                    <button onClick={() => setStatus('idle')} className="btn-primary mt-6">
+                    <button onClick={() => setStatus('idle')} className="btn-dark mt-6">
                       Send Another Message
                     </button>
                   </div>
@@ -264,7 +264,7 @@ export default function ContactSection() {
 
                     <div>
                       <label htmlFor="message" className="mb-1.5 block text-sm font-medium text-primary">
-                        Message <span className="text-accent">*</span>
+                        Message <span className="text-primary">*</span>
                       </label>
                       <textarea
                         id="message"
@@ -274,7 +274,7 @@ export default function ContactSection() {
                         required
                         rows={4}
                         placeholder="Tell us about your event or inquiry..."
-                        className={`w-full resize-none rounded-xl border px-4 py-3 text-sm focus:outline-none focus:ring-2 focus:ring-accent/30 ${
+                        className={`w-full resize-none rounded-xl border px-4 py-3 text-sm focus:outline-none focus:ring-2 focus:ring-primary/20 ${
                           errors.message ? 'border-red-400 bg-red-50' : 'border-primary/15 bg-surface'
                         }`}
                       />
@@ -286,7 +286,7 @@ export default function ContactSection() {
                     <button
                       type="submit"
                       disabled={status === 'submitting'}
-                      className="btn-primary w-full justify-center disabled:cursor-not-allowed disabled:opacity-70"
+                      className="btn-dark w-full justify-center disabled:cursor-not-allowed disabled:opacity-70"
                     >
                       {status === 'submitting' ? (
                         <>
@@ -303,7 +303,7 @@ export default function ContactSection() {
 
                     <p className="text-center text-xs text-primary/40">
                       Or call us at{' '}
-                      <Link href={SITE_CONFIG.phoneHref} className="text-accent hover:underline">
+                      <Link href={SITE_CONFIG.phoneHref} className="text-primary hover:underline">
                         {SITE_CONFIG.phone}
                       </Link>
                     </p>
@@ -349,7 +349,7 @@ function TabButton({ active, onClick, icon, label }: TabButtonProps) {
       onClick={onClick}
       className={`flex flex-1 items-center justify-center gap-2 rounded-xl px-4 py-3 text-sm font-semibold transition-all duration-200 ${
         active
-          ? 'bg-accent text-white shadow-sm'
+          ? 'bg-primary text-white shadow-sm'
           : 'text-primary/50 hover:text-primary'
       }`}
     >
@@ -374,7 +374,7 @@ function FormField({ label, name, type, value, error, placeholder, required = fa
   return (
     <div>
       <label htmlFor={name} className="mb-1.5 block text-sm font-medium text-primary">
-        {label} {required && <span className="text-accent">*</span>}
+        {label} {required && <span className="text-primary">*</span>}
       </label>
       <input
         id={name}
@@ -384,7 +384,7 @@ function FormField({ label, name, type, value, error, placeholder, required = fa
         onChange={onChange}
         placeholder={placeholder}
         required={required}
-        className={`w-full rounded-xl border px-4 py-3 text-sm focus:outline-none focus:ring-2 focus:ring-accent/30 ${
+        className={`w-full rounded-xl border px-4 py-3 text-sm focus:outline-none focus:ring-2 focus:ring-primary/20 ${
           error ? 'border-red-400 bg-red-50' : 'border-primary/15 bg-surface'
         }`}
       />
@@ -403,7 +403,7 @@ type ContactDetailProps = {
 function ContactDetail({ icon, label, value, href }: ContactDetailProps) {
   const inner = (
     <div className="flex items-start gap-4">
-      <div className="flex h-10 w-10 flex-shrink-0 items-center justify-center rounded-full bg-accent/10 text-accent">
+      <div className="flex h-10 w-10 flex-shrink-0 items-center justify-center rounded-full bg-primary/5 text-primary">
         {icon}
       </div>
       <div>
@@ -428,7 +428,7 @@ function SocialLink({ href, label, children }: SocialLinkProps) {
       target="_blank"
       rel="noopener noreferrer"
       aria-label={label}
-      className="flex h-10 w-10 items-center justify-center rounded-full border border-primary/15 bg-surface text-primary/60 transition-all duration-300 hover:border-accent hover:bg-accent hover:text-white"
+      className="flex h-10 w-10 items-center justify-center rounded-full border border-primary/15 bg-surface text-primary/60 transition-all duration-300 hover:border-primary hover:bg-primary hover:text-white"
     >
       {children}
     </a>

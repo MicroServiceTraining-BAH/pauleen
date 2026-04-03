@@ -184,7 +184,7 @@ export default function GalleryViewer({
                 aria-label={`Go to photo ${i + 1}`}
                 className={`rounded-full transition-all duration-300 ${
                   i === activeIndex
-                    ? 'h-3 w-8 bg-accent shadow-[0_0_8px_rgba(249,115,22,0.8)]'
+                    ? 'h-3 w-8 bg-accent shadow-[0_0_8px_rgba(255,255,255,0.6)]'
                     : 'h-3 w-3 bg-white/50 hover:bg-white'
                 }`}
               />

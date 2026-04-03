@@ -93,13 +93,13 @@ function ServiceDetail({ service, reverse }: ServiceDetailProps) {
               sizes="(max-width: 1024px) 100vw, 50vw"
             />
             <div className="absolute inset-0 bg-gradient-to-t from-primary/50 to-transparent" />
-            <div className="absolute bottom-4 left-4 h-1 w-10 rounded-full bg-accent shadow-warm-lg" />
+            <div className="absolute bottom-4 left-4 h-1 w-10 rounded-full bg-white shadow-dark-lg" />
           </div>
         </div>
       </div>
 
       <div className={reverse ? 'lg:order-1' : ''}>
-        <p className="mb-2 text-xs font-semibold uppercase tracking-widest text-accent">
+        <p className="mb-2 text-xs font-semibold uppercase tracking-widest text-secondary">
           {service.headline}
         </p>
         <h2 className="heading-section mb-4">{service.title}</h2>
@@ -108,7 +108,7 @@ function ServiceDetail({ service, reverse }: ServiceDetailProps) {
         <p className="mb-8 text-base leading-relaxed text-primary/65">
           {service.description}
         </p>
-        <Link href="/contact" className="btn-primary">
+        <Link href="/contact" className="btn-dark">
           {service.cta}
         </Link>
       </div>

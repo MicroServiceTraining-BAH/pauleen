@@ -66,7 +66,7 @@ export default function AboutPage() {
 
               <div className="lg:pt-4">
                 <h2 className="heading-section mb-6">
-                  <span className="text-gradient-warm">{SITE_CONFIG.brandName}</span>
+                  <span className="text-primary">{SITE_CONFIG.brandName}</span>
                 </h2>
                 <div className="divider-gold mb-8" />
 
@@ -107,7 +107,7 @@ export default function AboutPage() {
                   </p>
                 </div>
 
-                <Link href="/contact" className="btn-primary mt-10">
+                <Link href="/contact" className="btn-dark mt-10">
                   Work With {SITE_CONFIG.chefAlias}
                 </Link>
               </div>
@@ -144,7 +144,7 @@ export default function AboutPage() {
               ].map(({ name, desc, active }) => (
                 <div
                   key={name}
-                  className={`rounded-2xl p-6 ${active ? 'bg-accent' : 'bg-dark-card'}`}
+                  className={`rounded-2xl p-6 ${active ? 'bg-white/10 border border-white/15' : 'bg-dark-card'}`}
                 >
                   {active && (
                     <span className="mb-3 inline-block rounded-full bg-white/20 px-3 py-0.5 text-xs font-semibold text-white">
@@ -163,15 +163,15 @@ export default function AboutPage() {
         <section className="bg-surface py-20">
           <div className="mx-auto max-w-xl px-6 text-center">
             <h2 className="heading-section mb-5">
-              Ready to <span className="text-gradient-warm">Get Started?</span>
+              Ready to <span className="text-primary">Get Started?</span>
             </h2>
             <p className="mb-8 text-base text-primary/60">
               If you have questions regarding any of our services, or if you would simply
               like to chat, please feel free to reach out today!
             </p>
             <div className="flex flex-wrap justify-center gap-4">
-              <Link href="/contact" className="btn-primary">Get a Quote!</Link>
-              <Link href={SITE_CONFIG.phoneHref} className="btn-dark">{SITE_CONFIG.phone}</Link>
+              <Link href="/contact" className="btn-dark">Get a Quote!</Link>
+              <Link href={SITE_CONFIG.phoneHref} className="btn-outline-dark">{SITE_CONFIG.phone}</Link>
             </div>
           </div>
         </section>

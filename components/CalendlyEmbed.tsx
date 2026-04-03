@@ -25,7 +25,7 @@ export default function CalendlyEmbed() {
         <div className="mb-12 text-center">
           <span className="section-tag mb-4 inline-block">Schedule a Consultation</span>
           <h2 className="heading-section mb-5 text-balance">
-            Book a <span className="text-gradient-warm">Free Call</span>
+            Book a <span className="text-primary">Free Call</span>
           </h2>
           <div className="divider-gold mx-auto mb-5" />
           <p className="mx-auto max-w-lg text-base text-primary/60">

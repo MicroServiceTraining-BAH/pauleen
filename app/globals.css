@@ -12,12 +12,12 @@
 }
 
 :root {
-  --primary: #0f172a;
-  --secondary: #065f46;
-  --accent: #f97316;
-  --gold: #facc15;
-  --surface: #f8fafc;
-  --dark-card: #1e293b;
+  --primary: #0a0a0a;
+  --secondary: #404040;
+  --accent: #ffffff;
+  --gold: #d4d4d4;
+  --surface: #f5f5f5;
+  --dark-card: #1a1a1a;
 }
 
 @layer base {
@@ -35,14 +35,18 @@
   }
 
   ::selection {
-    background: #f97316;
+    background: #0a0a0a;
     color: white;
   }
 }
 
 @layer components {
   .btn-primary {
-    @apply inline-flex items-center gap-2 rounded-full bg-accent px-8 py-4 text-sm font-semibold uppercase tracking-widest text-white transition-all duration-300 hover:bg-orange-warm hover:shadow-warm-lg hover:-translate-y-0.5 active:translate-y-0 min-h-[44px] min-w-[44px];
+    @apply inline-flex items-center gap-2 rounded-full bg-accent px-8 py-4 text-sm font-semibold uppercase tracking-widest text-primary transition-all duration-300 hover:bg-gold hover:-translate-y-0.5 active:translate-y-0 min-h-[44px] min-w-[44px];
+  }
+
+  .btn-outline-dark {
+    @apply inline-flex items-center gap-2 rounded-full border-2 border-primary px-8 py-4 text-sm font-semibold uppercase tracking-widest text-primary transition-all duration-300 hover:bg-primary hover:text-white hover:-translate-y-0.5 active:translate-y-0 min-h-[44px] min-w-[44px];
   }
 
   .btn-outline {
@@ -54,7 +58,7 @@
   }
 
   .section-tag {
-    @apply inline-flex items-center gap-2 rounded-full border border-accent/30 bg-accent/10 px-4 py-1.5 text-xs font-semibold uppercase tracking-widest text-accent;
+    @apply inline-flex items-center gap-2 rounded-full border border-primary/20 bg-primary/5 px-4 py-1.5 text-xs font-semibold uppercase tracking-widest text-primary;
   }
 
   .section-tag-light {
@@ -78,15 +82,15 @@
   }
 
   .card-hover {
-    @apply transition-all duration-500 hover:-translate-y-2 hover:shadow-warm-lg;
+    @apply transition-all duration-500 hover:-translate-y-2 hover:shadow-dark-lg;
   }
 
   .divider-gold {
-    @apply h-px w-16 bg-gradient-to-r from-accent to-gold;
+    @apply h-px w-16 bg-secondary;
   }
 
   .text-gradient-warm {
-    @apply bg-gradient-to-r from-accent to-gold bg-clip-text text-transparent;
+    @apply bg-gradient-to-r from-white to-gold bg-clip-text text-transparent;
   }
 }
 
@@ -150,5 +154,5 @@
   transform: translateY(-50%);
   width: 3px;
   height: 60px;
-  background: linear-gradient(to bottom, transparent, #f97316, transparent);
+  background: linear-gradient(to bottom, transparent, #D4D4D4, transparent);
 }

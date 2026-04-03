@@ -45,11 +45,11 @@ export default function AboutSection() {
             </div>
 
             {/* Founded badge */}
-            <div className="absolute -left-4 top-8 rounded-xl bg-accent px-4 py-3 shadow-warm-lg lg:-left-6">
-              <p className="text-center font-display text-2xl font-bold text-white leading-none">
+            <div className="absolute -left-4 top-8 rounded-xl bg-accent px-4 py-3 shadow-dark-lg lg:-left-6">
+              <p className="text-center font-display text-2xl font-bold text-primary leading-none">
                 {SITE_CONFIG.founded}
               </p>
-              <p className="text-center text-[10px] font-medium uppercase tracking-wider text-white/80">
+              <p className="text-center text-[10px] font-medium uppercase tracking-wider text-primary/70">
                 Est.
               </p>
             </div>

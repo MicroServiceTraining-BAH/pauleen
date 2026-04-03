@@ -9,14 +9,14 @@ const config: Config = {
   theme: {
     extend: {
       colors: {
-        primary: '#0F172A',
-        secondary: '#065F46',
-        accent: '#F97316',
-        gold: '#FACC15',
-        surface: '#F8FAFC',
-        'dark-card': '#1E293B',
-        'green-deep': '#064E3B',
-        'orange-warm': '#EA580C',
+        primary: '#0A0A0A',
+        secondary: '#404040',
+        accent: '#FFFFFF',
+        gold: '#D4D4D4',
+        surface: '#F5F5F5',
+        'dark-card': '#1A1A1A',
+        'green-deep': '#0D0D0D',
+        'orange-warm': '#E8E8E8',
       },
       fontFamily: {
         display: ['var(--font-cormorant)', 'Georgia', 'serif'],
@@ -52,14 +52,14 @@ const config: Config = {
         },
       },
       backgroundImage: {
-        'gold-gradient': 'linear-gradient(135deg, #FACC15 0%, #F97316 100%)',
-        'dark-gradient': 'linear-gradient(135deg, #0F172A 0%, #1E293B 100%)',
-        'green-gradient': 'linear-gradient(135deg, #064E3B 0%, #065F46 100%)',
+        'gold-gradient': 'linear-gradient(135deg, #D4D4D4 0%, #FFFFFF 100%)',
+        'dark-gradient': 'linear-gradient(135deg, #0A0A0A 0%, #1A1A1A 100%)',
+        'green-gradient': 'linear-gradient(135deg, #1A1A1A 0%, #404040 100%)',
       },
       boxShadow: {
-        'warm-lg': '0 20px 60px -10px rgba(249, 115, 22, 0.25)',
+        'warm-lg': '0 20px 60px -10px rgba(255, 255, 255, 0.12)',
         'dark-lg': '0 20px 60px -10px rgba(0, 0, 0, 0.5)',
-        'green-lg': '0 20px 60px -10px rgba(6, 95, 70, 0.3)',
+        'green-lg': '0 20px 60px -10px rgba(64, 64, 64, 0.25)',
       },
     },
   },
