@@ -13,7 +13,7 @@ export default function Hero() {
         aria-hidden="true"
         className="pointer-events-none absolute inset-0 flex items-end justify-end overflow-hidden"
       >
-        <span className="select-none font-display text-[20vw] font-bold leading-none text-white/5 translate-y-6">
+        <span className="select-none font-display text-[20vw] font-bold leading-none text-white/20 translate-y-6">
           {SITE_CONFIG.shortName.toUpperCase()}
         </span>
       </div>
