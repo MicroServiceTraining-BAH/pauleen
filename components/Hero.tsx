@@ -11,19 +11,24 @@ export default function Hero() {
       {/* Decorative large brand name */}
       <div
         aria-hidden="true"
-        className="pointer-events-none absolute inset-x-0 top-16 overflow-hidden"
+        className="pointer-events-none absolute inset-x-0 top-14 overflow-hidden"
         style={{
-          maskImage: 'linear-gradient(to right, transparent, white 20%, white 80%, transparent)',
-          WebkitMaskImage: 'linear-gradient(to right, transparent, white 20%, white 80%, transparent)',
+          maskImage: 'linear-gradient(to right, transparent, white 15%, white 85%, transparent)',
+          WebkitMaskImage: 'linear-gradient(to right, transparent, white 15%, white 85%, transparent)',
         }}
       >
-        <p className="select-none text-center font-display text-[16vw] font-bold uppercase leading-none tracking-widest text-white/10">
-          {SITE_CONFIG.shortName}
-        </p>
+        <div className="mx-auto max-w-7xl px-6 lg:px-12">
+          <p
+            className="select-none text-left leading-none text-white/[0.07]"
+            style={{ fontFamily: 'var(--font-playfair)', fontSize: 'clamp(80px, 14vw, 200px)', fontWeight: 900, letterSpacing: '-0.02em' }}
+          >
+            {SITE_CONFIG.shortName}
+          </p>
+        </div>
       </div>
 
       {/* Content */}
-      <div className="relative z-10 mx-auto flex h-full max-w-7xl flex-col items-start justify-end px-6 pb-20 pt-24 lg:px-12">
+      <div className="relative z-10 mx-auto flex h-full max-w-7xl flex-col items-start justify-end px-6 pb-32 pt-24 lg:px-12">
         <div className="max-w-2xl">
           {/* Location tag */}
           <div className="mb-6 animate-fade-in opacity-0-init" style={{ animationFillMode: 'forwards' }}>

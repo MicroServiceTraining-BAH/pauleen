@@ -1,5 +1,5 @@
 import type { Metadata } from 'next';
-import { Cormorant_Garamond, Poppins } from 'next/font/google';
+import { Cormorant_Garamond, Playfair_Display, Poppins } from 'next/font/google';
 
 import ScrollToTop from '@/components/ScrollToTop';
 import StickyMobileCTA from '@/components/StickyMobileCTA';
@@ -10,6 +10,13 @@ const cormorant = Cormorant_Garamond({
   subsets: ['latin'],
   weight: ['400', '500', '600', '700'],
   variable: '--font-cormorant',
+  display: 'swap',
+});
+
+const playfair = Playfair_Display({
+  subsets: ['latin'],
+  weight: ['700', '800', '900'],
+  variable: '--font-playfair',
   display: 'swap',
 });
 
@@ -51,7 +58,7 @@ type RootLayoutProps = {
 
 export default function RootLayout({ children }: RootLayoutProps) {
   return (
-    <html lang="en" className={`${cormorant.variable} ${poppins.variable}`}>
+    <html lang="en" className={`${cormorant.variable} ${poppins.variable} ${playfair.variable}`}>
       <body className="antialiased">
         <ScrollToTop />
         {children}
