@@ -11,9 +11,9 @@ export default function Hero() {
       {/* Decorative large brand name */}
       <div
         aria-hidden="true"
-        className="pointer-events-none absolute inset-0 flex items-end justify-end overflow-hidden"
+        className="pointer-events-none absolute inset-x-0 top-16 flex items-start justify-center overflow-hidden"
       >
-        <span className="select-none font-display text-[20vw] font-bold leading-none text-white/20 translate-y-6">
+        <span className="select-none font-display text-[18vw] font-bold leading-none text-white/20">
           {SITE_CONFIG.shortName.toUpperCase()}
         </span>
       </div>
