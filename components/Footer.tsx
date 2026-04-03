@@ -24,7 +24,7 @@ export default function Footer() {
       <div className="absolute left-0 top-0 h-[300px] w-[300px] rounded-full bg-accent/5 blur-[100px]" />
 
       <div className="relative z-10 mx-auto max-w-7xl px-6 py-16 lg:px-12 lg:py-20">
-        <div className="grid gap-12 md:grid-cols-2 lg:grid-cols-4">
+        <div className="grid gap-8 md:grid-cols-2 md:gap-10 lg:grid-cols-4 lg:gap-12">
           {/* Brand */}
           <div className="lg:col-span-1">
             <Link href="/" className="mb-6 flex items-center gap-3">
@@ -177,7 +177,7 @@ function SocialIconLink({ href, label, children }: SocialIconLinkProps) {
       target="_blank"
       rel="noopener noreferrer"
       aria-label={label}
-      className="flex h-9 w-9 items-center justify-center rounded-full border border-white/15 text-white/50 transition-all duration-300 hover:border-accent hover:text-accent"
+      className="flex h-11 w-11 items-center justify-center rounded-full border border-white/15 text-white/50 transition-all duration-300 hover:border-accent hover:text-accent md:h-9 md:w-9"
     >
       {children}
     </a>

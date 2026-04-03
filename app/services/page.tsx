@@ -18,7 +18,7 @@ export default function ServicesPage() {
       <Navbar />
       <main>
         {/* Page Hero */}
-        <section className="relative overflow-hidden bg-primary pt-32 pb-20">
+        <section className="relative overflow-hidden bg-primary pt-24 pb-12 md:pt-32 md:pb-20">
           <div className="absolute inset-0">
             <Image
               src={IMAGES.services}
@@ -41,7 +41,7 @@ export default function ServicesPage() {
         </section>
 
         {/* Services detail */}
-        <section className="bg-surface py-20 lg:py-28">
+        <section className="bg-surface py-14 md:py-20 lg:py-28">
           <div className="mx-auto max-w-7xl px-6 lg:px-12">
             <div className="space-y-28">
               {SERVICES.map((service, i) => (
@@ -52,7 +52,7 @@ export default function ServicesPage() {
         </section>
 
         {/* CTA */}
-        <section className="bg-primary py-20">
+        <section className="bg-primary py-14 md:py-20">
           <div className="mx-auto max-w-xl px-6 text-center">
             <h2 className="heading-section-light mb-5">
               Have a great idea for an event?{' '}
@@ -81,7 +81,7 @@ type ServiceDetailProps = {
 
 function ServiceDetail({ service, reverse }: ServiceDetailProps) {
   return (
-    <div id={service.id} className="grid items-center gap-12 lg:grid-cols-2">
+    <div id={service.id} className="grid items-center gap-6 md:gap-8 lg:grid-cols-2 lg:gap-12">
       <div className={`relative ${reverse ? 'lg:order-2' : ''}`}>
         <div className="relative overflow-hidden rounded-2xl">
           <div className="relative aspect-[4/3]">

@@ -17,7 +17,7 @@ export default function TrustBar() {
         <p className="mb-10 text-center text-xs font-semibold uppercase tracking-widest text-white/30">
           {SITE_CONFIG.brandName}
         </p>
-        <div className="grid grid-cols-2 gap-8 lg:grid-cols-4">
+        <div className="grid grid-cols-2 gap-4 md:gap-6 lg:grid-cols-4 lg:gap-8">
           {FACTS.map(({ value, label }, i) => (
             <div
               key={label}

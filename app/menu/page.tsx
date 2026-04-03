@@ -19,7 +19,7 @@ export default function MenuPage() {
       <Navbar />
       <main>
         {/* Page Hero */}
-        <section className="relative overflow-hidden bg-primary pt-32 pb-20">
+        <section className="relative overflow-hidden bg-primary pt-24 pb-12 md:pt-32 md:pb-20">
           <div className="absolute inset-0">
             <Image
               src={IMAGES.menu1}

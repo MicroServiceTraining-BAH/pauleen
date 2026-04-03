@@ -37,7 +37,7 @@ export default function InteractiveMenu() {
   const menuImages = [IMAGES.menu1, IMAGES.menu2];
 
   return (
-    <section className="bg-primary py-24 lg:py-32">
+    <section className="bg-primary py-16 md:py-24 lg:py-32">
       <div className="mx-auto max-w-7xl px-6 lg:px-12">
 
         {/* Header */}
@@ -184,7 +184,7 @@ export default function InteractiveMenu() {
           </button>
 
           <div
-            className="relative mx-20 h-full max-h-[90vh] w-full max-w-2xl"
+            className="relative mx-4 h-full max-h-[90vh] w-full max-w-2xl md:mx-20"
             onClick={(e) => e.stopPropagation()}
           >
             <Image

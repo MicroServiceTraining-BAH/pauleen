@@ -124,13 +124,13 @@ export default function Navbar() {
         <div className="absolute bottom-0 right-0 h-96 w-96 rounded-full bg-accent/5 blur-3xl" />
         <div className="absolute left-0 top-1/2 h-64 w-64 rounded-full bg-secondary/10 blur-3xl" />
 
-        <div className="flex flex-1 flex-col items-center justify-center gap-8 relative z-10 px-6">
+        <div className="flex flex-1 flex-col items-center justify-center gap-5 relative z-10 px-6 md:gap-8">
           {NAV_LINKS.map(({ href, label }, i) => (
             <Link
               key={href}
               href={href}
               onClick={() => { if (href === '/') window.scrollTo({ top: 0, behavior: 'instant' }); }}
-              className={`font-display text-4xl font-bold text-white/80 transition-all duration-300 hover:text-accent ${
+              className={`font-display text-2xl font-bold text-white/80 transition-all duration-300 hover:text-accent sm:text-3xl md:text-4xl ${
                 pathname === href ? 'text-accent' : ''
               }`}
               style={{ transitionDelay: isOpen ? `${i * 80}ms` : '0ms' }}

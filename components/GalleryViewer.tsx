@@ -141,7 +141,7 @@ export default function GalleryViewer({
 
           {/* Main image — object-contain so nothing is cropped */}
           <div
-            className="relative mx-20 h-full w-full max-h-[82vh] max-w-5xl"
+            className="relative mx-4 h-full w-full max-h-[82vh] max-w-5xl md:mx-20"
             onClick={(e) => e.stopPropagation()}
             // Touch swipe
             onTouchStart={(e) => setTouchStartX(e.touches[0].clientX)}

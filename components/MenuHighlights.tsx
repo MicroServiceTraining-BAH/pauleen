@@ -5,7 +5,7 @@ import { IMAGES, VERIFIED_MENU_ITEMS } from '@/lib/constants';
 
 export default function MenuHighlights() {
   return (
-    <section className="bg-surface py-24 lg:py-32">
+    <section className="bg-surface py-16 md:py-24 lg:py-32">
       <div className="mx-auto max-w-7xl px-6 lg:px-12">
         {/* Header */}
         <div className="mb-16 flex flex-col items-center text-center">
@@ -22,7 +22,7 @@ export default function MenuHighlights() {
         </div>
 
         {/* Layout: Images + Items */}
-        <div className="grid gap-12 lg:grid-cols-2 lg:items-start">
+        <div className="grid gap-6 md:gap-8 lg:grid-cols-2 lg:items-start lg:gap-12">
           {/* Images */}
           <div className="grid grid-cols-2 gap-4">
             <div className="relative col-span-2 overflow-hidden rounded-2xl">

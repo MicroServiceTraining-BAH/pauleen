@@ -27,7 +27,7 @@ export default function GalleryPage() {
       <Navbar />
       <main>
         {/* Page Hero */}
-        <section className="relative overflow-hidden bg-primary pt-32 pb-20">
+        <section className="relative overflow-hidden bg-primary pt-24 pb-12 md:pt-32 md:pb-20">
           <div className="absolute inset-0">
             <Image
               src={IMAGES.gallery[5]}
@@ -51,7 +51,7 @@ export default function GalleryPage() {
         </section>
 
         {/* Full gallery */}
-        <section className="bg-surface py-20 lg:py-28">
+        <section className="bg-surface py-14 md:py-20 lg:py-28">
           <div className="mx-auto max-w-7xl px-6 lg:px-12">
             <GalleryViewer
               images={ALL_IMAGES}

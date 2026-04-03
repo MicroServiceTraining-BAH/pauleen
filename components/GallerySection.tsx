@@ -5,7 +5,7 @@ import { IMAGES } from '@/lib/constants';
 
 export default function GallerySection() {
   return (
-    <section className="relative overflow-hidden bg-primary py-24 lg:py-32">
+    <section className="relative overflow-hidden bg-primary py-16 md:py-24 lg:py-32">
       <div className="absolute right-0 top-0 h-[600px] w-[600px] rounded-full bg-accent/5 blur-[150px]" />
 
       <div className="relative z-10 mx-auto max-w-7xl px-6 lg:px-12">

@@ -26,7 +26,7 @@ export default function Hero() {
       </div>
 
       {/* Content */}
-      <div className="relative z-10 mx-auto flex h-full max-w-7xl flex-col items-start justify-end px-6 pb-32 pt-24 lg:px-12">
+      <div className="relative z-10 mx-auto flex h-full max-w-7xl flex-col items-start justify-end px-6 pb-16 pt-20 md:pb-28 md:pt-24 lg:px-12 lg:pb-32">
         <div className="max-w-2xl">
           {/* Location tag */}
           <div className="mb-6 animate-fade-in opacity-0-init" style={{ animationFillMode: 'forwards' }}>

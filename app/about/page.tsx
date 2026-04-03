@@ -18,7 +18,7 @@ export default function AboutPage() {
       <Navbar />
       <main>
         {/* Page Hero */}
-        <section className="relative overflow-hidden bg-primary pt-32 pb-20">
+        <section className="relative overflow-hidden bg-primary pt-24 pb-12 md:pt-32 md:pb-20">
           <div className="absolute inset-0">
             <Image
               src={IMAGES.heroAlt}
@@ -42,7 +42,7 @@ export default function AboutPage() {
         </section>
 
         {/* Main story */}
-        <section className="bg-surface py-20 lg:py-28">
+        <section className="bg-surface py-14 md:py-20 lg:py-28">
           <div className="mx-auto max-w-7xl px-6 lg:px-12">
             <div className="grid items-start gap-16 lg:grid-cols-2">
               <div className="relative">
@@ -116,7 +116,7 @@ export default function AboutPage() {
         </section>
 
         {/* Related ventures — real info from site */}
-        <section className="bg-primary py-20 lg:py-24">
+        <section className="bg-primary py-14 md:py-20 lg:py-24">
           <div className="mx-auto max-w-7xl px-6 lg:px-12">
             <div className="mb-12 text-center">
               <span className="section-tag-light mb-4 block w-fit mx-auto">The Portfolio</span>
@@ -160,7 +160,7 @@ export default function AboutPage() {
         </section>
 
         {/* CTA */}
-        <section className="bg-surface py-20">
+        <section className="bg-surface py-14 md:py-20">
           <div className="mx-auto max-w-xl px-6 text-center">
             <h2 className="heading-section mb-5">
               Ready to <span className="text-primary">Get Started?</span>

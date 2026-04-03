@@ -4,7 +4,7 @@ import { SITE_CONFIG } from '@/lib/constants';
 
 export default function CTABanner() {
   return (
-    <section className="relative overflow-hidden bg-primary py-24 lg:py-32">
+    <section className="relative overflow-hidden bg-primary py-16 md:py-24 lg:py-32">
       {/* Decorative glows */}
       <div className="absolute right-0 top-0 h-[500px] w-[500px] rounded-full bg-accent/8 blur-[140px]" />
       <div className="absolute -left-8 bottom-0 h-[400px] w-[400px] rounded-full bg-white/5 blur-[120px]" />

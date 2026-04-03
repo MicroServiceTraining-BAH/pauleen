@@ -5,12 +5,12 @@ import { IMAGES, SITE_CONFIG } from '@/lib/constants';
 
 export default function AboutSection() {
   return (
-    <section className="relative overflow-hidden bg-primary py-24 lg:py-32">
+    <section className="relative overflow-hidden bg-primary py-16 md:py-24 lg:py-32">
       <div className="absolute right-0 top-0 h-[500px] w-[500px] rounded-full bg-secondary/10 blur-[120px]" />
       <div className="absolute bottom-0 left-0 h-[400px] w-[400px] rounded-full bg-accent/5 blur-[100px]" />
 
       <div className="relative z-10 mx-auto max-w-7xl px-6 lg:px-12">
-        <div className="grid items-center gap-16 lg:grid-cols-2">
+        <div className="grid items-center gap-8 md:gap-12 lg:grid-cols-2 lg:gap-16">
           {/* Image side */}
           <div className="relative">
             <div className="relative overflow-hidden rounded-2xl">
