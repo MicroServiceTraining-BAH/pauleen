@@ -5,27 +5,27 @@ import { IMAGES, SITE_CONFIG } from '@/lib/constants';
 
 export default function Hero() {
   return (
-    <section className="relative min-h-screen w-full overflow-hidden">
+    <section className="relative h-screen w-full overflow-hidden">
       {/* Background Image */}
       <Image
         src={IMAGES.hero}
         alt="Elegant catering spread by Pauleen's Catering"
         fill
-        className="object-cover object-top"
+        className="object-cover object-bottom"
         priority
         sizes="100vw"
         quality={90}
       />
 
       {/* Layered Overlays */}
-      <div className="absolute inset-0 bg-gradient-to-r from-primary/95 via-primary/75 to-primary/40" />
-      <div className="absolute inset-0 bg-gradient-to-t from-primary/80 via-transparent to-primary/30" />
+      <div className="absolute inset-0 bg-gradient-to-r from-primary/90 via-primary/60 to-primary/30" />
+      <div className="absolute inset-0 bg-gradient-to-t from-primary/60 via-transparent to-primary/10" />
 
       {/* Top accent bar */}
       <div className="absolute left-0 top-0 h-1 w-full bg-gradient-to-r from-accent via-gold to-accent" />
 
       {/* Content */}
-      <div className="relative z-10 mx-auto flex min-h-screen max-w-7xl flex-col items-start justify-end px-6 pb-24 pt-32 lg:px-12">
+      <div className="relative z-10 mx-auto flex h-full max-w-7xl flex-col items-start justify-end px-6 pb-20 pt-24 lg:px-12">
         <div className="max-w-2xl">
           {/* Location tag */}
           <div className="mb-6 animate-fade-in opacity-0-init" style={{ animationFillMode: 'forwards' }}>
