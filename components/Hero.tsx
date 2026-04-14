@@ -48,7 +48,7 @@ export default function Hero() {
         }}
       >
         <p
-          className="select-none text-center leading-none text-white/[0.08]"
+          className="select-none text-center leading-none text-white/[0.28]"
           style={{ fontFamily: 'var(--font-playfair)', fontSize: 'clamp(48px, 13vw, 200px)', fontWeight: 900, letterSpacing: '-0.02em' }}
         >
           {SITE_CONFIG.shortName}
