@@ -7,27 +7,29 @@ export default function ServicesSection() {
   return (
     <section className="bg-surface py-16 md:py-24 lg:py-32">
       <div className="mx-auto max-w-7xl px-6 lg:px-12">
-        {/* Header */}
-        <div className="mb-16 flex flex-col items-center text-center">
-          <span className="section-tag mb-4">What We Offer</span>
-          <h2 className="heading-section mb-5 text-balance">
-            Our <span className="text-primary">Services</span>
-          </h2>
-          <div className="divider-gold mb-5" />
-          <p className="max-w-xl text-base leading-relaxed text-primary/60">
-            From curated private dinners to full-scale event catering, we work with you
-            to deliver fresh, delicious food with hospitality that leaves a lasting impression.
+        {/* Header — split layout, left-aligned heading + right description */}
+        <div className="mb-16 grid items-end gap-6 md:grid-cols-2 md:mb-20">
+          <div>
+            <span className="section-tag mb-4 block w-fit">What We Offer</span>
+            <h2 className="heading-section text-balance">
+              Our <span className="text-primary">Services</span>
+            </h2>
+            <div className="divider-gold mt-5" />
+          </div>
+          <p className="text-base leading-relaxed text-primary/60 md:max-w-sm md:pb-1">
+            From curated private dinners to full-scale event catering — fresh food and
+            hospitality that leaves a lasting impression.
           </p>
         </div>
 
-        {/* Services Grid */}
-        <div className="grid gap-6 md:grid-cols-3">
-          {SERVICES.map((service) => (
-            <ServiceCard key={service.id} service={service} />
+        {/* Zig-zag editorial layout — no equal 3-col cards */}
+        <div className="space-y-16 md:space-y-24">
+          {SERVICES.map((service, i) => (
+            <ServiceRow key={service.id} service={service} index={i} />
           ))}
         </div>
 
-        <div className="mt-14 flex justify-center">
+        <div className="mt-16 flex justify-start">
           <Link href="/services" className="btn-dark">
             View All Services
             <svg className="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
@@ -40,41 +42,58 @@ export default function ServicesSection() {
   );
 }
 
-type ServiceCardProps = {
+type ServiceRowProps = {
   service: (typeof SERVICES)[number];
+  index: number;
 };
 
-function ServiceCard({ service }: ServiceCardProps) {
+function ServiceRow({ service, index }: ServiceRowProps) {
+  const imageFirst = index % 2 === 0;
+
   return (
-    <article className="group relative flex flex-col overflow-hidden rounded-2xl bg-white shadow-sm transition-all duration-500 hover:-translate-y-2 hover:shadow-dark-lg">
+    <article
+      className="group grid items-center gap-8 md:grid-cols-2 md:gap-16"
+      style={{ '--index': index } as React.CSSProperties}
+    >
       {/* Image */}
-      <div className="relative h-52 overflow-hidden">
-        <Image
-          src={service.image}
-          alt={`${service.title} — Pauleen's Catering & Events`}
-          fill
-          className="object-cover transition-transform duration-700 group-hover:scale-110"
-          sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
-        />
-        <div className="absolute inset-0 bg-gradient-to-t from-primary/60 via-transparent to-transparent" />
-        <div className="absolute bottom-4 left-4 h-1 w-10 rounded-full bg-accent shadow-dark-lg" />
+      <div
+        className={`relative overflow-hidden rounded-2xl ${imageFirst ? 'md:order-1' : 'md:order-2'}`}
+      >
+        <div className="relative aspect-[4/3] w-full">
+          <Image
+            src={service.image}
+            alt={`${service.title} — Pauleen's Catering & Events`}
+            fill
+            className="object-cover transition-transform duration-700 group-hover:scale-[1.03]"
+            sizes="(max-width: 768px) 100vw, 50vw"
+          />
+          <div className="absolute inset-0 bg-gradient-to-t from-primary/50 via-transparent to-transparent" />
+          {/* Inner refraction edge — glassmorphism rule */}
+          <div className="absolute inset-0 rounded-2xl shadow-[inset_0_1px_0_rgba(255,255,255,0.08)]" />
+        </div>
+        {/* Index label */}
+        <div className="absolute left-4 top-4 flex h-8 w-8 items-center justify-center rounded-full bg-white/10 backdrop-blur-sm ring-1 ring-white/20 shadow-[inset_0_1px_0_rgba(255,255,255,0.15)]">
+          <span className="font-mono text-xs font-semibold text-white/80">
+            {String(index + 1).padStart(2, '0')}
+          </span>
+        </div>
       </div>
 
       {/* Content */}
-      <div className="flex flex-1 flex-col p-6">
-        <p className="mb-1 text-xs font-semibold uppercase tracking-widest text-secondary">
+      <div className={`flex flex-col ${imageFirst ? 'md:order-2' : 'md:order-1'}`}>
+        <p className="mb-2 text-xs font-semibold uppercase tracking-widest text-secondary">
           {service.headline}
         </p>
-        <h3 className="mb-2 font-display text-xl font-bold text-primary">
+        <h3 className="mb-4 font-display text-3xl font-bold leading-tight text-primary md:text-4xl">
           {service.title}
         </h3>
-        <div className="mb-3 h-px w-10 bg-secondary transition-all duration-300 group-hover:w-16" />
-        <p className="flex-1 text-sm leading-relaxed text-primary/60">
+        <div className="mb-5 h-px w-10 bg-secondary/40 transition-all duration-500 group-hover:w-20 group-hover:bg-secondary" />
+        <p className="text-base leading-relaxed text-primary/60" style={{ maxWidth: '52ch' }}>
           {service.description}
         </p>
         <Link
           href="/contact"
-          className="mt-5 inline-flex items-center gap-1.5 text-sm font-semibold text-secondary transition-all duration-300 hover:gap-3"
+          className="mt-8 inline-flex items-center gap-2 text-sm font-semibold uppercase tracking-wider text-primary transition-all duration-300 hover:gap-4"
         >
           {service.cta}
           <svg className="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">

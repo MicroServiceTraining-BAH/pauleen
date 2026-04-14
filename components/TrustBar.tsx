@@ -14,22 +14,26 @@ export default function TrustBar() {
       <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-accent/50 to-transparent" />
 
       <div className="mx-auto max-w-7xl px-6 py-16 lg:px-12">
-        <p className="mb-10 text-center text-xs font-semibold uppercase tracking-widest text-white/30">
-          {SITE_CONFIG.brandName}
-        </p>
-        <div className="grid grid-cols-2 gap-4 md:gap-6 lg:grid-cols-4 lg:gap-8">
+        <div className="mb-10 flex items-center justify-between">
+          <p className="text-xs font-semibold uppercase tracking-widest text-white/30">
+            {SITE_CONFIG.brandName}
+          </p>
+          <div className="h-px flex-1 mx-8 bg-white/8" />
+          <p className="font-mono text-[10px] tracking-widest text-white/20">Est. {SITE_CONFIG.founded}</p>
+        </div>
+        <div className="grid grid-cols-2 gap-4 md:gap-6 lg:grid-cols-4 lg:gap-0">
           {FACTS.map(({ value, label }, i) => (
             <div
               key={label}
-              className={`group flex flex-col items-center text-center ${
+              className={`group flex flex-col items-start px-0 lg:px-8 ${
                 i < FACTS.length - 1 ? 'lg:border-r lg:border-white/10' : ''
-              }`}
+              } ${i === 0 ? 'lg:pl-0' : ''}`}
             >
-              <span className="font-display text-3xl font-bold text-gradient-warm lg:text-4xl">
+              <span className="font-display text-4xl font-bold text-gradient-warm lg:text-5xl tracking-tight leading-none">
                 {value}
               </span>
-              <div className="mt-2 h-px w-8 bg-accent/40 transition-all duration-300 group-hover:w-16 group-hover:bg-accent" />
-              <span className="mt-3 text-xs font-medium uppercase tracking-widest text-white/50">
+              <div className="mt-3 h-px w-6 bg-accent/40 transition-all duration-300 group-hover:w-12 group-hover:bg-accent" />
+              <span className="mt-3 text-xs font-medium uppercase tracking-widest text-white/45 leading-relaxed">
                 {label}
               </span>
             </div>

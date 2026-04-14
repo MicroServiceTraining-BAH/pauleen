@@ -147,7 +147,7 @@ export default function InteractiveMenu() {
             Interested in catering? We customize menus for every event.
           </p>
           <Link href="/contact" className="btn-primary">
-            Get a Quote!
+            Get a Quote
           </Link>
         </div>
       </div>

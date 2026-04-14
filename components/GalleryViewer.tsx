@@ -66,8 +66,9 @@ export default function GalleryViewer({
           <button
             key={src}
             onClick={() => setActiveIndex(i)}
-            className="group relative aspect-square overflow-hidden rounded-xl focus:outline-none focus-visible:ring-2 focus-visible:ring-accent focus-visible:ring-offset-2"
+            className="stagger-child group relative aspect-square overflow-hidden rounded-xl focus:outline-none focus-visible:ring-2 focus-visible:ring-accent focus-visible:ring-offset-2"
             aria-label={`Open photo ${i + 1} of ${total}`}
+            style={{ '--index': i } as React.CSSProperties}
           >
             <Image
               src={src}

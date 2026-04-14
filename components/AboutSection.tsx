@@ -27,7 +27,7 @@ export default function AboutSection() {
             </div>
 
             {/* Floating name card */}
-            <div className="absolute -bottom-6 -right-6 rounded-2xl bg-dark-card p-5 shadow-dark-lg lg:-right-8">
+            <div className="absolute -bottom-6 -right-6 rounded-2xl bg-dark-card p-5 shadow-dark-lg ring-1 ring-white/10 shadow-[inset_0_1px_0_rgba(255,255,255,0.07)] lg:-right-8">
               <div className="flex items-center gap-4">
                 <div>
                   <p className="font-display text-base font-bold text-white">
