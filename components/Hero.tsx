@@ -41,7 +41,7 @@ export default function Hero() {
       {/* Decorative large brand name */}
       <div
         aria-hidden="true"
-        className="pointer-events-none absolute inset-x-0 top-24 overflow-hidden"
+        className="pointer-events-none absolute inset-x-0 top-24 z-0 hidden overflow-hidden lg:block"
         style={{
           maskImage: 'linear-gradient(to right, transparent, white 10%, white 90%, transparent)',
           WebkitMaskImage: 'linear-gradient(to right, transparent, white 10%, white 90%, transparent)',
