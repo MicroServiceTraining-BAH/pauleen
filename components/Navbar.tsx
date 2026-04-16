@@ -63,7 +63,7 @@ export default function Navbar() {
           </Link>
 
           {/* Desktop Nav */}
-          <ul className="hidden items-center gap-8 lg:flex">
+          <ul className="hidden items-center gap-5 lg:flex xl:gap-8">
             {NAV_LINKS.map(({ href, label }) => (
               <li key={href}>
                 <Link
@@ -83,7 +83,7 @@ export default function Navbar() {
           <div className="hidden items-center gap-4 lg:flex">
             <Link
               href={SITE_CONFIG.phoneHref}
-              className="text-sm font-medium text-white/70 transition-colors hover:text-accent"
+              className="hidden text-sm font-medium text-white/70 transition-colors hover:text-accent xl:block"
             >
               {SITE_CONFIG.phone}
             </Link>
