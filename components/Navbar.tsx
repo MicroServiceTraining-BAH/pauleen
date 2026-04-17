@@ -42,20 +42,15 @@ export default function Navbar() {
       >
         <nav className="mx-auto flex max-w-7xl items-center justify-between px-6 py-4 lg:px-12">
           {/* Logo */}
-          <Link href="/" onClick={() => window.scrollTo({ top: 0, behavior: 'instant' })} className="relative z-10 flex items-center gap-3">
-            <div className="relative h-10 w-10 overflow-hidden rounded-full">
+          <Link href="/" onClick={() => window.scrollTo({ top: 0, behavior: 'instant' })} className="relative z-10">
+            <div className="relative h-28 w-28 overflow-hidden rounded-full">
               <Image
                 src={IMAGES.logo}
                 alt={SITE_CONFIG.name}
                 fill
                 className="object-cover"
-                sizes="40px"
+                sizes="80px"
               />
-            </div>
-            <div className="flex flex-col leading-none">
-              <span className="font-display text-lg font-bold text-white">
-                Pauleen&apos;s
-              </span>
             </div>
           </Link>
 

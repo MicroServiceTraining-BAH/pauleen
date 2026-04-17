@@ -27,20 +27,15 @@ export default function Footer() {
         <div className="grid gap-8 md:grid-cols-2 md:gap-10 lg:grid-cols-4 lg:gap-12">
           {/* Brand */}
           <div className="lg:col-span-1">
-            <Link href="/" className="mb-6 flex items-center gap-3">
-              <div className="relative h-12 w-12 overflow-hidden rounded-full">
+            <Link href="/" className="mb-6 inline-block">
+              <div className="relative h-28 w-28 overflow-hidden rounded-full">
                 <Image
                   src={IMAGES.logo}
                   alt={SITE_CONFIG.name}
                   fill
                   className="object-cover"
-                  sizes="48px"
+                  sizes="80px"
                 />
-              </div>
-              <div className="flex flex-col leading-none">
-                <span className="font-display text-xl font-bold text-white">
-                  Pauleen&apos;s
-                </span>
               </div>
             </Link>
             <p className="text-sm leading-relaxed text-white/50">
