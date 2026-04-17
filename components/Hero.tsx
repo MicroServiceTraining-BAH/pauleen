@@ -22,7 +22,7 @@ export default function Hero() {
       <video
         ref={videoRef}
         className="absolute inset-0 h-full w-full object-cover"
-        src="/sandwish.mp4"
+        src="/panini.mp4"
         autoPlay
         muted
         loop
