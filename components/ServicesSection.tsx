@@ -62,7 +62,7 @@ function ServiceRow({ service, index }: ServiceRowProps) {
         <div className="relative aspect-[4/3] w-full">
           <Image
             src={service.image}
-            alt={`${service.title} — Pauleen's Catering & Events`}
+            alt={`${service.title} — Pauleen's`}
             fill
             className="object-cover transition-transform duration-700 group-hover:scale-[1.03]"
             sizes="(max-width: 768px) 100vw, 50vw"

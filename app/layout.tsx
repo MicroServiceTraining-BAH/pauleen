@@ -29,11 +29,11 @@ const poppins = Poppins({
 
 export const metadata: Metadata = {
   title: {
-    default: "Pauleen's Catering & Events | Chef Jimmie Salonie — Northern Virginia & DMV",
-    template: "%s | Pauleen's Catering & Events",
+    default: "Pauleen's | Chef Jimmie Salonie — Northern Virginia & DMV",
+    template: "%s | Pauleen's",
   },
   description:
-    "Pauleen's Catering & Events by Chef Jimmie Salonie — a modern artisan chef dedicated to crafting food, drink, and service that is often imitated but rarely equalled. Serving Northern Virginia & the DMV.",
+    "Pauleen's by Chef Jimmie Salonie — a modern artisan chef dedicated to crafting food, drink, and service that is often imitated but rarely equalled. Serving Northern Virginia & the DMV.",
   keywords: [
     'catering Northern Virginia',
     'catering DMV',
@@ -44,7 +44,7 @@ export const metadata: Metadata = {
     'culinary classes Northern Virginia',
   ],
   openGraph: {
-    title: "Pauleen's Catering & Events | Chef Jimmie Salonie",
+    title: "Pauleen's | Chef Jimmie Salonie",
     description:
       "A modern artisan chef dedicated to crafting food, drink, and service that is often imitated but rarely equalled. Serving Northern Virginia & the DMV.",
     type: 'website',

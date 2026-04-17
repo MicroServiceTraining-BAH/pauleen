@@ -1,7 +1,7 @@
 export const SITE_CONFIG = {
-  name: "Pauleen's Catering & Events",
+  name: "Pauleen's",
   shortName: "Pauleen's",
-  brandName: "Pauleen's Catering & Events",
+  brandName: "Pauleen's",
   tagline: "Life is a banquet and tastes so much better when it's prepared for you.",
   taglineAttribution: '— Chef Jimmie Salonie',
   subTagline: 'Servicing Northern Virginia & the DMV',
@@ -67,15 +67,7 @@ export const SERVICES = [
     cta: "Let's Chat!",
     image: IMAGES.services,
   },
-  {
-    id: 'recipe-development',
-    title: 'Recipe Development',
-    headline: 'Recipe for Success',
-    description:
-      "This service specializes in simplifying recipes based on your specific requests. Chef Jimmie can help you create delicious, nutritious meals that will tantalize your guests' taste buds. We can customize recipes to fit specific dietary needs, while still providing a delicious and memorable experience for your guests.",
-    cta: 'Email',
-    image: IMAGES.gallery[4],
-  },
+
 ] as const;
 
 export const NAV_LINKS = [

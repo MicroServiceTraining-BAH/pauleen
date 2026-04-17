@@ -9,7 +9,7 @@ import { IMAGES } from '@/lib/constants';
 export const metadata: Metadata = {
   title: 'Contact & Quote',
   description:
-    "Request a catering quote from Pauleen's Catering & Events. Tell us about your event and Chef Jimmie Salonie will respond with a personalized proposal.",
+    "Request a catering quote from Pauleen's. Tell us about your event and Chef Jimmie Salonie will respond with a personalized proposal.",
 };
 
 export default function ContactPage() {

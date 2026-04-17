@@ -9,7 +9,7 @@ import { IMAGES, SITE_CONFIG } from '@/lib/constants';
 export const metadata: Metadata = {
   title: 'About',
   description:
-    "Learn the story behind Pauleen's Catering & Events — founded in 2009 by Chef Jimmie Salonie, a modern artisan chef dedicated to crafting food, drink, and service that is often imitated but rarely equalled.",
+    "Learn the story behind Pauleen's — founded in 2009 by Chef Jimmie Salonie, a modern artisan chef dedicated to crafting food, drink, and service that is often imitated but rarely equalled.",
 };
 
 export default function AboutPage() {
@@ -127,7 +127,7 @@ export default function AboutPage() {
             <div className="grid gap-6 md:grid-cols-3">
               {[
                 {
-                  name: "Pauleen's Catering & Events",
+                  name: "Pauleen's — Catering & Events",
                   desc: 'Full-service catering company focusing on regional American cuisine. Private dinners, corporate events, and culinary classes.',
                   active: true,
                 },

@@ -56,9 +56,6 @@ export default function Navbar() {
               <span className="font-display text-lg font-bold text-white">
                 Pauleen&apos;s
               </span>
-              <span className="text-[10px] font-medium uppercase tracking-[0.2em] text-accent">
-                Catering &amp; Events
-              </span>
             </div>
           </Link>
 

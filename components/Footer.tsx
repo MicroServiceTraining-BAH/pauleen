@@ -41,9 +41,6 @@ export default function Footer() {
                 <span className="font-display text-xl font-bold text-white">
                   Pauleen&apos;s
                 </span>
-                <span className="text-[10px] font-medium uppercase tracking-[0.2em] text-accent">
-                  Catering &amp; Events
-                </span>
               </div>
             </Link>
             <p className="text-sm leading-relaxed text-white/50">
